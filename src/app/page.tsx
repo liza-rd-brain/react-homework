@@ -1,0 +1,11 @@
+"use client";
+
+import { SmallButton } from "@/component/smallButton";
+
+export default function Page() {
+  return (
+    <>
+      <SmallButton isActive={true} color={"red"} iconType={"minus"} />
+    </>
+  );
+}
