@@ -6,6 +6,7 @@ export default function Page() {
   return (
     <>
       <SmallButton isActive={true} color={"red"} iconType={"minus"} />
+      <>TEXT</>
     </>
   );
 }
