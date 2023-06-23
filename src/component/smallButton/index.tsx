@@ -1,7 +1,5 @@
 import { FC, FunctionComponent, ReactNode } from "react";
 
-import { IconProps } from "../icon/types";
-
 import { PlusIcon } from "../icon/Plus";
 import { MinusIcon } from "../icon/Minus";
 

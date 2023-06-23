@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { IconProps } from "./types";
 
-export const BasketIcon: FC<IconProps> = ({ color }) => {
+export const CartIcon: FC<IconProps> = ({ color }) => {
   return (
     <svg
       width="28"

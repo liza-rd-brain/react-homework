@@ -9,20 +9,21 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-   //для центрирования
+    //для центрирования
     margin: 0 auto;
 }
 
 //TODO: вынести общее header,footer
+//TODO: добавить cursor pointer
 .header {
     display: flex;
     height: 84px;
     background-color: $gray;
     padding: 24px 32px;
-    @include fontType($big-font-size,$bold-font-weight,$big-line-height, $white)
+    @include fontType($big-font-size, $bold-font-weight, $big-line-height, $white)
 }
 
-.nav__wrapper{
+.nav__wrapper {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -34,4 +35,5 @@
     height: 86px;
     background-color: $gray;
     padding: 24px 32px;
+    @include fontType($regular-font-size, $regular-font-weight, $regular-line-height, $white)
 }
