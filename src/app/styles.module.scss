@@ -1,0 +1,37 @@
+@import "../style/variables.scss";
+@import "../style/mixin.scss";
+
+
+.container {
+    width: 1920px;
+    /*  height: 100vh; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   //для центрирования
+    margin: 0 auto;
+}
+
+//TODO: вынести общее header,footer
+.header {
+    display: flex;
+    height: 84px;
+    background-color: $gray;
+    padding: 24px 32px;
+    @include fontType($big-font-size,$bold-font-weight,$big-line-height, $white)
+}
+
+.nav__wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer {
+    display: flex;
+    height: 86px;
+    background-color: $gray;
+    padding: 24px 32px;
+}
