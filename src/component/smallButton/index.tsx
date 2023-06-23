@@ -18,7 +18,7 @@ const getIcons = ({ iconType }: Pick<ButtonProps, "iconType">) => {
       return <PlusIcon color="#FFFFFF" />;
     }
     case "minus": {
-      return <MinusIcon color="red" />;
+      return <MinusIcon color="#FFFFFF" />;
     }
   }
 };
@@ -28,8 +28,6 @@ let cx = classnames.bind(styles);
 export const SmallButton: FC<ButtonProps> = ({ isActive, color, iconType }) => {
   //TODO: add isActive class,color
   /*  const btnClass = classnames({ btn: true, btn__small: true }); */
-
-  console.log("test");
 
   const classList = cx({
     button: true,

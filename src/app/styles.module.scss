@@ -15,6 +15,7 @@
 
 //TODO: вынести общее header,footer
 //TODO: добавить cursor pointer
+//TODO: общий border-radius
 .header {
     display: flex;
     height: 84px;
@@ -36,4 +37,43 @@
     background-color: $gray;
     padding: 24px 32px;
     @include fontType($regular-font-size, $regular-font-weight, $regular-line-height, $white)
+}
+
+.main {
+    height: 100vh;
+    background-color: $light-gray;
+
+}
+
+.main__wrapper {
+    display: flex;
+}
+
+.movie__list{
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 80vh;
+    width: 100%;
+
+    ::-webkit-scrollbar {
+        width: 8px;
+        position: fixed;
+        border-radius: 4px;
+        position: fixed;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 3px;
+        background: rgb(186, 183, 183);
+        border: 3px solid transparent;
+        background-clip: content-box;
+        /* THIS IS IMPORTANT */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #77abdf;
+        border-radius: 4px;
+    }
+    
 }

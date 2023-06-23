@@ -5,6 +5,7 @@ import styles from "./styles.module.scss";
 import classnames from "classnames";
 
 import { CartIcon } from "../component/icon/Cart";
+import Link from "next/link";
 
 export const metadata = {
   title: "Create Next App",
@@ -16,9 +17,13 @@ const Header = () => {
   return (
     <header className={classnames(styles.header)}>
       <div className={classnames(styles.nav__wrapper)}>
-        <div> Билетопоиск</div>
         <div>
-          <CartIcon color="#FFFFFF" />
+          <Link href="/">Билетопоиск</Link>
+        </div>
+        <div>
+          <Link href="/cart">
+            <CartIcon color="#FFFFFF" />
+          </Link>
         </div>
       </div>
     </header>
@@ -29,12 +34,15 @@ const Footer = () => {
   return (
     <footer className={classnames(styles.footer)}>
       <div className={classnames(styles.nav__wrapper)}>
-        <div> Вопросы-ответы</div>
-        <div>О нас</div>
+        <div>
+          <Link href="/faq">Вопросы-ответы</Link>{" "}
+        </div>
+        <Link href="/about">О нас</Link>
       </div>
     </footer>
   );
 };
+
 export default function RootLayout({
   children,
 }: {
@@ -45,7 +53,7 @@ export default function RootLayout({
       <body>
         <div className={classnames(styles.container)}>
           <Header />
-          {children}
+          <main className={classnames(styles.main)}>{children}</main>
           <Footer />
         </div>
       </body>
