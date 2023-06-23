@@ -11,6 +11,9 @@
     justify-content: space-between;
     //для центрирования
     margin: 0 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+
 }
 
 //TODO: вынести общее header,footer
@@ -43,18 +46,22 @@
     height: 100vh;
     background-color: $light-gray;
 
+    overflow-x: hidden;
+    overflow-y: hidden;
+
 }
 
 .main__wrapper {
     display: flex;
+    width: 100%;
 }
 
 .movie__list{
 
     overflow-x: hidden;
     overflow-y: auto;
-    max-height: 80vh;
-    width: 100%;
+    max-height: 90vh;
+
 
     ::-webkit-scrollbar {
         width: 8px;
