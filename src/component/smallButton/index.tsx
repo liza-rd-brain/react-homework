@@ -5,7 +5,7 @@ import { IconProps } from "../icon/types";
 import { PlusIcon } from "../icon/Plus";
 import { MinusIcon } from "../icon/Minus";
 
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 import classnames from "classnames/bind";
 
 type ButtonProps = {

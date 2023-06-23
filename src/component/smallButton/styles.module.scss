@@ -1,0 +1,21 @@
+@import "../../style/variables.scss";
+@import "../../style/variables.scss";
+
+.button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button_small {
+    background-color: $orange-disabled-clr;
+}

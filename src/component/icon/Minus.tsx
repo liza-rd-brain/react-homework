@@ -4,7 +4,7 @@ import { IconProps } from "./types";
 export const MinusIcon: FC<IconProps> = ({ color }) => {
   return (
     <svg
-      width="24"
+      width="10"
       height="2"
       viewBox="0 0 24 2"
       fill="none"
@@ -17,3 +17,16 @@ export const MinusIcon: FC<IconProps> = ({ color }) => {
     </svg>
   );
 };
+
+<svg
+  width="10"
+  height="2"
+  viewBox="0 0 10 2"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M9.5 1C9.5 1.09946 9.46049 1.19484 9.39017 1.26517C9.31984 1.33549 9.22446 1.375 9.125 1.375H0.875C0.775544 1.375 0.680161 1.33549 0.609835 1.26517C0.539509 1.19484 0.5 1.09946 0.5 1C0.5 0.900544 0.539509 0.805161 0.609835 0.734835C0.680161 0.664509 0.775544 0.625 0.875 0.625H9.125C9.22446 0.625 9.31984 0.664509 9.39017 0.734835C9.46049 0.805161 9.5 0.900544 9.5 1Z"
+    fill="white"
+  />
+</svg>;
