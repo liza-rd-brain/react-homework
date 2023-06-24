@@ -8,15 +8,13 @@ import { CloseIcon } from "../Icon/Close";
 // карточка на главной и в корзине
 //TODO: image from NEXT вместо класса image
 
-export const MovieCard: FC<{}> = () => {
+export const MovieCard: FC<{ title: string }> = ({ title }) => {
   return (
     <div className={classnames(styles.card__wrapper)}>
       <div className={classnames(styles.image)}></div>
       <div className={classnames(styles.card__items__wrapper)}>
         <div className={classnames(styles.card__text)}>
-          <div className={classnames(styles.card__header)}>
-            Властелин колец: Братство кольца
-          </div>
+          <div className={classnames(styles.card__header)}>{title}</div>
           <div className={classnames(styles.card__genre)}>Фэнтези</div>
         </div>
         <div className={classnames(styles.card__controller)}>
