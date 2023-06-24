@@ -1,39 +1,58 @@
 @import "../../style/variables.scss";
 @import "../../style/variables.scss";
 
-.filter__wrapper {
-    width: 408px;
-    height: 862px;
-    top: 84px;
-    left:0;
-    position: sticky;
-    display: flex;
+.filter {
+    &__wrapper {
+        width: 408px;
+        height: 862px;
+        top: 84px;
+        left: 0;
+        position: sticky;
+        display: flex;
     
-    flex-direction: column;
-    background-color: $white;
-    border-radius: $thin-border-radius;
-    padding: $common-padding;
-    gap: $common-gap;
+        flex-direction: column;
+        background-color: $white;
+        border-radius: $thin-border-radius;
+        padding: $common-padding;
+        gap: $common-gap;
+    }
+
+    &__container {
+        display: flex;
+        gap: $small-gap;
+        flex-direction: column;
+    }
+    &__dropdown {
+        display: block;
+        width: 100%;
+    /*     width: 50px;
+        height: 50px; */
+        // background-color: red;
+        padding:$xs-padding ;
+        margin-top:$step;
+        box-shadow: 0px 10px 22px -4px rgba(27, 31, 35, 0.12);
+
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: $thin-gap;
+    }
+
 }
 
-.filter__container {
-    display: flex;
-    gap:$small-gap;
-    flex-direction: column;
-}
 
-.filter__item{
-    display: flex;
-    flex-direction: column;
-    gap:$thin-gap;
-}
 
-.input{
+
+.input {
     all: unset;
     width: 360px;
     height: 40px;
     box-sizing: border-box;
-    border:1px solid $medium-gray;
+    border: 1px solid $medium-gray;
     border-radius: $medium-border-radius;
     padding: $thin-padding $medium-padding;
 }
+
+.modal {}

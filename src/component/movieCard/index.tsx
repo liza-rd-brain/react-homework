@@ -2,8 +2,8 @@ import { FC } from "react";
 
 import styles from "./styles.module.scss";
 import classnames from "classnames";
-import { SmallButton } from "../smallButton";
-import { CloseIcon } from "../icon/Close";
+import { SmallButton } from "../SmallButton";
+import { CloseIcon } from "../Icon/Close";
 
 // карточка на главной и в корзине
 //TODO: image from NEXT вместо класса image

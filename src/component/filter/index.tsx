@@ -1,3 +1,4 @@
+import { DropDown } from "./DropDown";
 import styles from "./styles.module.scss";
 import classnames from "classnames";
 
@@ -8,12 +9,16 @@ export const Filter = () => {
       <span>Фильтр поиска</span>
       <div className={classnames(styles.filter__container)}>
         <div className={classnames(styles.filter__item)}>
-          <div>Название</div>
-          <input
-            className={classnames(styles.input)}
-            type="text"
-            placeholder="Название"
-          />
+          {/* <div>Название</div> */}
+          <label htmlFor="name">
+            Название
+            <input
+              name="name"
+              className={classnames(styles.input)}
+              type="text"
+              placeholder="Введите название"
+            />
+          </label>
         </div>
         <div className={classnames(styles.filter__item)}>
           <div>Жанр</div>
@@ -23,14 +28,18 @@ export const Filter = () => {
             placeholder="Выберите жанр"
           />
         </div>
-        <div className={classnames(styles.filter__item)}>
+
+        {/*    <div className={classnames(styles.filter__item)}>
           <div>Кинотеатр</div>
           <input
+            name="theater"
             className={classnames(styles.input)}
             type="text"
             placeholder="Выберите кинотеатр"
           />
-        </div>
+        </div> */}
+
+        <DropDown title={"Выберите кинотеатр"}></DropDown>
       </div>
     </div>
   );

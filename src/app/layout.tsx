@@ -4,7 +4,7 @@ import { roboto } from "./font";
 import styles from "./styles.module.scss";
 import classnames from "classnames";
 
-import { CartIcon } from "../component/icon/Cart";
+import { CartIcon } from "../component/Icon/Cart";
 import Link from "next/link";
 import { Provider } from "react-redux";
 import { StoreProvider } from "@/redux/StoreProvider";

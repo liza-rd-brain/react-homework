@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles.module.scss";
 import classnames from "classnames";
 
-import { Filter } from "@/component/filter";
-import { MovieCard } from "@/component/movieCard";
+import { Filter } from "@/component/Filter";
+import { MovieCard } from "@/component/MovieCard";
 //main page????
 
 const testList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
