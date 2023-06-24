@@ -4,13 +4,25 @@
 
 .about__wrapper{
     width: 100%;
+    height: 100%;
+    padding: $common-padding $big-padding;
 }
+
 .section{
     width: 100%;
     display: flex;
     flex-direction: column;
     background-color: $white;
+    border-radius: $medium-border-radius;
     box-sizing: border-box;
-    padding: $common-padding $big-padding;
-    gap:$small-gap
+    padding: $common-padding ;
+    gap:$small-gap;
+}
+.header{
+    @include fontType($big-font-size, $bold-font-weight, $big-line-height, $text-primary-color);
+
+}
+.text{
+    @include fontType($small-font-size, $regular-font-weight,$regular-line-height, $text-primary-color);
+
 }

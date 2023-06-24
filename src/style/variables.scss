@@ -3,6 +3,8 @@
 $background-color: #27272A;
 $white: #FFFFFF;
 
+$text-primary-color:#1B1F23;
+
 $gray: #333333;
 $medium-gray: #E1E3E6;
 $light-gray: #F5F5F5;
@@ -24,7 +26,8 @@ $small-font-size:16px;
 $extra-small-font-size:14px;
 
 $big-line-height:37.5px;
-$regular-line-height:23.44px;
+$medium-line-height:$step*8;
+$regular-line-height:$step*6;
 
 
 //вынести  medium step???

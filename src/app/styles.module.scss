@@ -4,19 +4,14 @@
 
 .container {
     width: 1920px;
-    /*  height: 100vh; */
     height: 100%;
-/*     display: grid;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "header "
-        
-        "footer "; */
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    //для центрирования
+
+    background-color: $light-gray;
+
     margin: 0 auto;
     overflow-x: hidden;
     overflow-y: auto;
