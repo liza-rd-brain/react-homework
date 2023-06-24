@@ -1,11 +1,39 @@
 @import "../../style/variables.scss";
 @import "../../style/variables.scss";
 
-
-
-.filter__wrapper{
+.filter__wrapper {
+    width: 408px;
+    height: 862px;
+    top: 84px;
+    left:0;
+    position: sticky;
+    display: flex;
+    
+    flex-direction: column;
     background-color: $white;
-    border-radius: $common-border-radius;
-    padding:$common-padding;
+    border-radius: $thin-border-radius;
+    padding: $common-padding;
+    gap: $common-gap;
+}
 
+.filter__container {
+    display: flex;
+    gap:$small-gap;
+    flex-direction: column;
+}
+
+.filter__item{
+    display: flex;
+    flex-direction: column;
+    gap:$thin-gap;
+}
+
+.input{
+    all: unset;
+    width: 360px;
+    height: 40px;
+    box-sizing: border-box;
+    border:1px solid $medium-gray;
+    border-radius: $medium-border-radius;
+    padding: $thin-padding $medium-padding;
 }

@@ -4,6 +4,7 @@ $background-color: #27272A;
 $white: #FFFFFF;
 
 $gray: #333333;
+$medium-gray: #E1E3E6;
 $light-gray: #F5F5F5;
 
 $orange: #E94E00;
@@ -15,17 +16,29 @@ $medium-font-weight:500;
 $regular-font-weight:400;
 $light-font-weight:400;
 
+$step:4px;
+
 $big-font-size:32px;
 $regular-font-size:20px;
 $small-font-size:16px;
 $extra-small-font-size:14px;
 
-$big-line-height:37,5px;
-$regular-line-height:23,44px;
+$big-line-height:37.5px;
+$regular-line-height:23.44px;
 
 
-$common-padding:24px;
-$common-border-radius:4px;
+//вынести  medium step???
+$big-padding:$step*8;
+$common-padding:$step*6;
+$medium-padding:$step*4;
+$thin-padding:$step*2.5;
+
+$medium-border-radius:$step*2;
+$thin-border-radius:$step;
+
+$common-gap:$step*5;
+$small-gap:$step*4;
+$thin-gap:$step;
 
 
 

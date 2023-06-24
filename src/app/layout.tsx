@@ -6,6 +6,8 @@ import classnames from "classnames";
 
 import { CartIcon } from "../component/icon/Cart";
 import Link from "next/link";
+import { Provider } from "react-redux";
+import { StoreProvider } from "@/redux/StoreProvider";
 
 export const metadata = {
   title: "Create Next App",
@@ -51,10 +53,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={roboto.className}>
       <body>
-        <div className={classnames(styles.container)}>
-          <Header />
-          <main className={classnames(styles.main)}>{children}</main>
-          <Footer />
+        <div
+          className={classnames(styles.container, styles.container__main_page)}
+        >
+          <StoreProvider>
+            <Header />
+            {children}
+            <Footer />
+          </StoreProvider>
         </div>
       </body>
     </html>

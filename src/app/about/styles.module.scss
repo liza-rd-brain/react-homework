@@ -1,0 +1,16 @@
+@import "../../style/variables.scss";
+@import "../../style/mixin.scss";
+
+
+.about__wrapper{
+    width: 100%;
+}
+.section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    box-sizing: border-box;
+    padding: $common-padding $big-padding;
+    gap:$small-gap
+}

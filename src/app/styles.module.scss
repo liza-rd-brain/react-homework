@@ -6,6 +6,13 @@
     width: 1920px;
     /*  height: 100vh; */
     height: 100%;
+/*     display: grid;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "header "
+        
+        "footer "; */
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -16,15 +23,24 @@
 
 }
 
+.container__main_page {
+    
+
+}
+
 //TODO: вынести общее header,footer
 //TODO: добавить cursor pointer
 //TODO: общий border-radius
 .header {
+    grid-area: header;
     display: flex;
+    top: 0;
+    position: sticky;
     height: 84px;
     background-color: $gray;
     padding: 24px 32px;
-    @include fontType($big-font-size, $bold-font-weight, $big-line-height, $white)
+    @include fontType($big-font-size, $bold-font-weight, $big-line-height, $white);
+
 }
 
 .nav__wrapper {
@@ -35,7 +51,8 @@
 }
 
 .footer {
-    display: flex;
+    grid-area: footer;
+    /*  display: flex; */
     height: 86px;
     background-color: $gray;
     padding: 24px 32px;
@@ -44,43 +61,17 @@
 
 .main {
     height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     background-color: $light-gray;
 
-    overflow-x: hidden;
-    overflow-y: hidden;
+
+    /*  overflow-x: hidden;
+    overflow-y: hidden; */
 
 }
 
 .main__wrapper {
     display: flex;
     width: 100%;
-}
-
-.movie__list{
-
-    overflow-x: hidden;
-    overflow-y: auto;
-    max-height: 90vh;
-
-
-    ::-webkit-scrollbar {
-        width: 8px;
-        position: fixed;
-        border-radius: 4px;
-        position: fixed;
-    }
-
-    ::-webkit-scrollbar-track {
-        border-radius: 3px;
-        background: rgb(186, 183, 183);
-        border: 3px solid transparent;
-        background-clip: content-box;
-        /* THIS IS IMPORTANT */
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: #77abdf;
-        border-radius: 4px;
-    }
-    
 }
