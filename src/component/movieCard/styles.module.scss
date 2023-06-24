@@ -11,23 +11,20 @@
     border-radius: 8px;
     padding: 24px;
 
+    &__controller {
+        display: flex;
+    }
+
+    &__items__wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
 }
 
 .image {
     width: 100px;
     height: 120px;
     background-color: red;
-}
-
-.card__items__wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
-}
-
-
-.card__controller{
-    display: flex;
-
 }

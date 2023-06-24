@@ -16,6 +16,7 @@ export const Filter = () => {
               name="name"
               className={classnames(styles.input)}
               type="text"
+              autoComplete="off"
               placeholder="Введите название"
             />
           </label>

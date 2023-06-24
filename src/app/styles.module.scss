@@ -18,10 +18,7 @@
 
 }
 
-.container__main_page {
-    
 
-}
 
 //TODO: вынести общее header,footer
 //TODO: добавить cursor pointer
@@ -59,6 +56,8 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     background-color: $light-gray;
+    padding: 24px 32px;
+    gap:24px; 
 
 
     /*  overflow-x: hidden;
@@ -66,7 +65,7 @@
 
 }
 
-.main__wrapper {
+.main {
     display: flex;
     width: 100%;
 }
