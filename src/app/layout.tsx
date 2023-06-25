@@ -7,7 +7,7 @@ import classnames from "classnames";
 import { CartIcon } from "../component/Icon/Cart";
 import Link from "next/link";
 import { Provider } from "react-redux";
-import { StoreProvider } from "@/redux/StoreProvider";
+import { StoreProvider } from "@/business/StoreProvider";
 
 export const metadata = {
   title: "Create Next App",

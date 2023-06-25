@@ -52,20 +52,17 @@
 }
 
 .main {
-
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(2, 1fr);
     background-color: $light-gray;
     padding: 24px 32px;
-    gap:24px; 
-
-
-    /*  overflow-x: hidden;
-    overflow-y: hidden; */
-
+    gap: 24px;
+    justify-self: start;
+    align-self: start;
+/*     height: 100%; */
 }
 
-.main {
+/* .main {
     display: flex;
     width: 100%;
-}
+} */

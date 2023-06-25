@@ -1,10 +1,17 @@
+import { useGetCinemaListQuery } from "@/business/api/cinemaApi";
 import { ArrowIcon } from "../Icon/Arrow";
 import { DropDown } from "./DropDown";
 import styles from "./styles.module.scss";
 import classnames from "classnames";
+import { GENRE_LIST } from "@/shared";
 
 //TODO: два фильтра с порталами вынести в общий компонент?
 export const Filter = () => {
+  //TODO: здесь  будет место запросы списка кинотеатров?
+  const { data: cinemaList, isLoading, error } = useGetCinemaListQuery({});
+
+  console.log(cinemaList);
+
   return (
     <div className={classnames(styles.filter__wrapper)}>
       <span>Фильтр поиска</span>
@@ -22,16 +29,18 @@ export const Filter = () => {
             />
           </label>
         </div>
-        {/*         <div className={classnames(styles.filter__item)}>
-          <div>Жанр</div>
-          <input
-            className={classnames(styles.input)}
-            type="text"
-            placeholder="Выберите жанр"
-          />
-        </div> */}
-        <DropDown title={"Выберите жанр"}></DropDown>
-        <DropDown title={"Выберите кинотеатр"}></DropDown>
+        <DropDown
+          title={"Жанр"}
+          type="genre"
+          data={GENRE_LIST}
+          placeHolder="Выберите жанр"
+        ></DropDown>
+        <DropDown
+          title={"Кинотеатр"}
+          type="cinema"
+          data={cinemaList}
+          placeHolder="Выберите кинотеатр"
+        ></DropDown>
       </div>
     </div>
   );

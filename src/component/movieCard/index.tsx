@@ -13,7 +13,7 @@ import { CloseIcon } from "../Icon/Close";
 //TODO: image from NEXT вместо класса image
 
 type CardPropsType = {
-  id: number;
+  id: string;
   title: string;
   genre: string;
   posterUrl: string;

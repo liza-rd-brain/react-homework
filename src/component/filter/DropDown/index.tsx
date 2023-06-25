@@ -5,20 +5,69 @@ import { createPortal } from "react-dom";
 
 import styles from "./../styles.module.scss";
 import classnames from "classnames";
-/* import classnames from "classnames/bind"; */
 
 import { ArrowIcon } from "@/component/Icon/Arrow";
-/* let cx = classnames.bind(styles); */
+import { useGetCinemaListQuery } from "@/business/api/cinemaApi";
+import { useDispatch, useSelector } from "react-redux";
+import { filterActions } from "@/business/feature/filter";
+import { selectFilterModule } from "@/business/feature/filter/selector";
 
-const Modal = ({ onClose }: { onClose: () => void }) => {
+type ModalType = {
+  closeModal: () => void; //
+  type: "genre" | "cinema";
+  data: Array<any>;
+};
+
+type DropDownType = {
+  title: string;
+  type: "genre" | "cinema";
+  data: Array<any>;
+  placeHolder: string;
+};
+
+const Modal = ({ closeModal, data, type }: ModalType) => {
+  console.log("data", data);
+
+  const dispatch = useDispatch();
+
   return (
-    <div className={classnames(styles.filter__dropdown)}>
-      <div>здесь будет список элементов</div>
+    <div className={classnames(styles.dropdown)}>
+      <div
+        className={classnames(styles.dropdown__item)}
+        onClick={(e) => {
+          e.stopPropagation();
+          closeModal();
+        }}
+      >
+        не выбрано
+      </div>
+      {data.map((item, index) => (
+        <div
+          key={index}
+          className={classnames(styles.dropdown__item)}
+          onClick={(e) => {
+            e.stopPropagation();
+            dispatch(
+              type === "genre"
+                ? filterActions.filterByGenre(item.name)
+                : filterActions.filterByCinema(item.name)
+            );
+            closeModal();
+          }}
+        >
+          {item.name}
+        </div>
+      ))}
     </div>
   );
 };
 
-export const DropDown: FC<{ title: string }> = ({ title }) => {
+export const DropDown: FC<DropDownType> = ({
+  title,
+  type,
+  data,
+  placeHolder,
+}) => {
   type StateType = { hasModal: boolean; target: Element | null };
 
   const initialState: StateType = {
@@ -27,19 +76,24 @@ export const DropDown: FC<{ title: string }> = ({ title }) => {
   };
   const [state, setState] = useState(initialState);
 
+  const filterState = useSelector(selectFilterModule);
+
+  //TODO:useRef!!!!
+
   //TODO: обработать клик вне выпадашки! В кастомный хук?
+  //useEfect -отписаться от listener!!!
+
+  const currFilter = filterState[`${type}Filter`] || placeHolder;
 
   return (
     <div className={classnames(styles.filter__item)}>
-      <div>Кинотеатр</div>
-      {/*  <label htmlFor="theater">Кинотеатр</label> */}
+      <div>{title}</div>
       <div
         className={classnames(styles.input, {
           [styles.input__active]: state.hasModal,
         })}
         onClick={(e) => {
-          console.log(e);
-          console.log("click");
+          e.stopPropagation();
           setState((prev) => ({
             ...prev,
             hasModal: !prev.hasModal,
@@ -47,7 +101,7 @@ export const DropDown: FC<{ title: string }> = ({ title }) => {
           }));
         }}
       >
-        <div>Выберите кинотеатр</div>
+        <div>{currFilter}</div>
         <div
           className={classnames(styles.icon__wrapper, {
             [styles.icon__wrapper__reversed]: state.hasModal,
@@ -61,7 +115,9 @@ export const DropDown: FC<{ title: string }> = ({ title }) => {
         state.target &&
         createPortal(
           <Modal
-            onClose={() =>
+            data={data}
+            type={type}
+            closeModal={() =>
               setState((prev) => ({ ...prev, hasModal: !prev.hasModal }))
             }
           />,
