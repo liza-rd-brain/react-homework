@@ -10,8 +10,6 @@ export const Filter = () => {
   //TODO: здесь  будет место запросы списка кинотеатров?
   const { data: cinemaList, isLoading, error } = useGetCinemaListQuery({});
 
-  console.log(cinemaList);
-
   return (
     <div className={classnames(styles.filter__wrapper)}>
       <span>Фильтр поиска</span>

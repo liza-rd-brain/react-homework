@@ -19,12 +19,11 @@ export const filterSlice = createSlice({
   name: "filter",
   initialState,
   reducers: {
-    filterByName: (state, { payload }: { payload: FilterType }) => {},
-    filterByGenre: (state, { payload }: { payload: FilterType }) => {
-      console.log("from slice", payload);
+    filterByName: (state, { payload }: { payload: FilterType | null }) => {},
+    filterByGenre: (state, { payload }: { payload: FilterType | null }) => {
       state.genreFilter = payload;
     },
-    filterByCinema: (state, { payload }: { payload: FilterType }) => {
+    filterByCinema: (state, { payload }: { payload: FilterType | null }) => {
       //делаем фильтрацию по кинотеатру
     },
   },

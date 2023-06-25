@@ -26,8 +26,6 @@ type DropDownType = {
 };
 
 const Modal = ({ closeModal, data, type }: ModalType) => {
-  console.log("data", data);
-
   const dispatch = useDispatch();
 
   return (
@@ -36,7 +34,11 @@ const Modal = ({ closeModal, data, type }: ModalType) => {
         className={classnames(styles.dropdown__item)}
         onClick={(e) => {
           e.stopPropagation();
-          closeModal();
+          dispatch(
+            type === "genre"
+              ? filterActions.filterByGenre(null)
+              : filterActions.filterByCinema(null)
+          );
         }}
       >
         не выбрано

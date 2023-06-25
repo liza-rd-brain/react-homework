@@ -38,7 +38,8 @@ export default function Page() {
   console.log("filter", filterState);
 
   const filteredData = useMemo(() => {
-    if (!data) {
+    if (!data || !filterState.genreFilter) {
+      return null;
     } else {
       //фильтровать по жанру -
       const genreItem = GENRE_LIST.find(
