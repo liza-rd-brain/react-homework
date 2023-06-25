@@ -1,5 +1,5 @@
 @import "../../style/variables.scss";
-@import "../../style/variables.scss";
+@import "../../style/mixin.scss";
 
 .filter {
     &__wrapper {
@@ -9,7 +9,7 @@
         left: 0;
         position: sticky;
         display: flex;
-    
+
         flex-direction: column;
         background-color: $white;
         border-radius: $thin-border-radius;
@@ -22,37 +22,62 @@
         gap: $small-gap;
         flex-direction: column;
     }
+
     &__dropdown {
+        position: absolute;
+        z-index: 1;
         display: block;
         width: 100%;
-    /*     width: 50px;
-        height: 50px; */
-        // background-color: red;
-        padding:$xs-padding ;
-        margin-top:$step;
+        height: 100px;
+        top: 65px;
+        left: 0;
+        background-color: white;
+        padding: $xs-padding;
+        margin-top: $step;
         box-shadow: 0px 10px 22px -4px rgba(27, 31, 35, 0.12);
 
     }
 
     &__item {
         display: flex;
+        position: relative;
         flex-direction: column;
         gap: $thin-gap;
+        cursor: pointer;
     }
 
 }
-
-
 
 
 .input {
     all: unset;
     width: 360px;
     height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     box-sizing: border-box;
     border: 1px solid $medium-gray;
     border-radius: $medium-border-radius;
     padding: $thin-padding $medium-padding;
+
+    &__active {
+        border-color: $orange;
+    }
+
+    &>* {
+        pointer-events: none;
+    }
+
+}
+
+.icon__wrapper {
+    &__reversed {
+        &>*{
+            transform: rotate(180deg);
+        }
+    
+    }
 }
 
 .modal {}

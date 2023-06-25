@@ -8,12 +8,19 @@ import classnames from "classnames";
 import { Filter } from "@/component/Filter";
 import { MovieCard } from "@/component/MovieCard";
 import { useGetMovieQuery, useGetMoviesQuery } from "@/business/api/movieApi";
+import { useEffect } from "react";
 //main page????
 
 const testList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
 export default function Page() {
   const { data, isLoading, error } = useGetMoviesQuery({});
+
+  useEffect(() => {
+    document.addEventListener("click", (e) => {
+      console.log("click", e.target);
+    });
+  }, []);
 
   if (isLoading) {
     return <span>Loading...</span>;

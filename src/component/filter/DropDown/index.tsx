@@ -1,12 +1,15 @@
-/* "use client"; */
+"use client";
 
 import { FC, useState } from "react";
 import { createPortal } from "react-dom";
 
 import styles from "./../styles.module.scss";
 import classnames from "classnames";
+/* import classnames from "classnames/bind"; */
 
-const testString = "I'm a modal dialog";
+import { ArrowIcon } from "@/component/Icon/Arrow";
+/* let cx = classnames.bind(styles); */
+
 const Modal = ({ onClose }: { onClose: () => void }) => {
   return (
     <div className={classnames(styles.filter__dropdown)}>
@@ -16,29 +19,53 @@ const Modal = ({ onClose }: { onClose: () => void }) => {
 };
 
 export const DropDown: FC<{ title: string }> = ({ title }) => {
-  const [showModal, setShowModal] = useState(false);
-  console.log("showModal", showModal);
+  type StateType = { hasModal: boolean; target: Element | null };
 
-  //TODO: обработать клик вне выпадашки!
+  const initialState: StateType = {
+    hasModal: false,
+    target: null,
+  };
+  const [state, setState] = useState(initialState);
 
-  const selectElem = document.getElementById("select") as HTMLElement;
+  //TODO: обработать клик вне выпадашки! В кастомный хук?
+
   return (
-    <div id="select" className={classnames(styles.filter__item)}>
+    <div className={classnames(styles.filter__item)}>
       <div>Кинотеатр</div>
       {/*  <label htmlFor="theater">Кинотеатр</label> */}
       <div
-        className={classnames(styles.input)}
-        onClick={() => {
+        className={classnames(styles.input, {
+          [styles.input__active]: state.hasModal,
+        })}
+        onClick={(e) => {
+          console.log(e);
           console.log("click");
-          setShowModal(!showModal);
+          setState((prev) => ({
+            ...prev,
+            hasModal: !prev.hasModal,
+            target: e.target as Element,
+          }));
         }}
       >
-        Выберите кинотеатр
+        <div>Выберите кинотеатр</div>
+        <div
+          className={classnames(styles.icon__wrapper, {
+            [styles.icon__wrapper__reversed]: state.hasModal,
+          })}
+        >
+          <ArrowIcon color="#999FA6" />
+        </div>
       </div>
-      {showModal &&
+
+      {state.hasModal &&
+        state.target &&
         createPortal(
-          <Modal onClose={() => setShowModal(!showModal)} />,
-          selectElem
+          <Modal
+            onClose={() =>
+              setState((prev) => ({ ...prev, hasModal: !prev.hasModal }))
+            }
+          />,
+          state.target
         )}
     </div>
   );

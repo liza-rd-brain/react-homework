@@ -1,3 +1,4 @@
+import { ArrowIcon } from "../Icon/Arrow";
 import { DropDown } from "./DropDown";
 import styles from "./styles.module.scss";
 import classnames from "classnames";
@@ -21,25 +22,15 @@ export const Filter = () => {
             />
           </label>
         </div>
-        <div className={classnames(styles.filter__item)}>
+        {/*         <div className={classnames(styles.filter__item)}>
           <div>Жанр</div>
           <input
             className={classnames(styles.input)}
             type="text"
             placeholder="Выберите жанр"
           />
-        </div>
-
-        {/*    <div className={classnames(styles.filter__item)}>
-          <div>Кинотеатр</div>
-          <input
-            name="theater"
-            className={classnames(styles.input)}
-            type="text"
-            placeholder="Выберите кинотеатр"
-          />
         </div> */}
-
+        <DropDown title={"Выберите жанр"}></DropDown>
         <DropDown title={"Выберите кинотеатр"}></DropDown>
       </div>
     </div>
