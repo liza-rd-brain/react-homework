@@ -20,14 +20,15 @@ $light-font-weight:400;
 
 $step:4px;
 
-$big-font-size:32px;
-$regular-font-size:20px;
-$small-font-size:16px;
-$extra-small-font-size:14px;
+$big-font-size:$step*8;
+$regular-font-size:$step*5;
+$small-font-size:$step*4;
+$extra-small-font-size:$step*4-2;
 
 $big-line-height:37.5px;
 $medium-line-height:$step*8;
 $regular-line-height:$step*6;
+$small-line-height:$step*5;
 
 
 //вынести  medium step???
@@ -42,6 +43,7 @@ $thin-border-radius:$step;
 
 $common-gap:$step*5;
 $small-gap:$step*4;
+$xs-gap:$step*2;
 $thin-gap:$step;
 
 

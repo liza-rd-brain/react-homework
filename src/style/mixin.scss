@@ -1,7 +1,8 @@
-@mixin fontType($size, $weight, $height, $color) {
-    /*   font-family: $font-family; */
+@mixin fontType($size, $weight, $height, $color,$font-style:normal) {
     line-height: $height;
     font-weight: $weight;
     font-size: $size;
     color: $color;
+    font-style:$font-style ;
 }
+ 

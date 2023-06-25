@@ -34,7 +34,7 @@ export const MovieCard: FC<CardPropsType> = ({
         height={120}
         className={classnames(styles.image)}
       />
-      {/* <div className={classnames(styles.image)}></div> */}
+
       <div className={classnames(styles.card__items__wrapper)}>
         <div className={classnames(styles.card__text)}>
           <div className={classnames(styles.card__header)}>{title}</div>
