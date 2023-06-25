@@ -3,13 +3,14 @@ import { createSlice } from '@reduxjs/toolkit';
 
 /* export type StateType = Record<any, any> */
 
-/* 
+
 export const cartSlice = createSlice({
-    name: "cart", initialState,
+    name: "cart",
+    initialState,
     reducers: {
         increment: (state, { payload }: { payload: string }) => {
-            const hasFilm = state.ticketAmount;
-            state[payload] = count + 1;
+            state.ticketAmount
+
 
         },
         decrement: (state, { payload }: { payload: string }) => {
@@ -28,10 +29,10 @@ export const cartSlice = createSlice({
         reset: () => initialState
 
 
-    }
+    },
 }
 );
 
 
 export const cartReducer = cartSlice.reducer;
-export const cartActions = cartSlice.actions */
+export const cartActions = cartSlice.actions;

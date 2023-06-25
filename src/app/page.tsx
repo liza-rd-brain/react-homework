@@ -25,12 +25,28 @@ export default function Page() {
 
   console.log("data", data);
   //отсюда через useSelector достаем данные
+
+  type DataType = {
+    id: number;
+    title: string;
+    genre: string;
+    posterUrl: string;
+  };
+
   return (
     <div className={classnames(styles.main)}>
       <Filter />
       <div className={classnames(styles.movie__list)}>
-        {data.map(({ id, title }: { id: any; title: any }) => {
-          return <MovieCard key={id} title={title} />;
+        {data.map(({ id, title, genre, posterUrl }: DataType) => {
+          return (
+            <MovieCard
+              id={id}
+              key={id}
+              title={title}
+              genre={genre}
+              posterUrl={posterUrl}
+            />
+          );
         })}
       </div>
       {/* <SmallButton isActive={true} color={"red"} iconType={"minus"} />
