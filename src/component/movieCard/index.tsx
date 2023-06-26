@@ -8,9 +8,8 @@ import classnames from "classnames";
 
 import { SmallButton } from "../SmallButton";
 import { CloseIcon } from "../Icon/Close";
-
-// карточка на главной и в корзине
-//TODO: image from NEXT вместо класса image
+import { Controller } from "../Controller";
+import Link from "next/link";
 
 type CardPropsType = {
   id: string;
@@ -25,34 +24,35 @@ export const MovieCard: FC<CardPropsType> = ({
   genre,
   posterUrl,
 }) => {
-  return (
-    <div className={classnames(styles.card__wrapper)}>
-      <Image
-        src={posterUrl}
-        alt={title}
-        width={100}
-        height={120}
-        className={classnames(styles.image)}
-      />
+  const currLink = `/movie/${id}`;
 
-      <div
-        className={classnames(styles.card__items__wrapper)}
-        onClick={(e) => {
-          e.stopPropagation();
-          dispatchEvent;
-        }}
-      >
-        <div className={classnames(styles.card__text)}>
-          <div className={classnames(styles.card__header)}>{title}</div>
-          <div className={classnames(styles.card__genre)}>{genre}</div>
+  return (
+    <div className={classnames(styles.card__container)}>
+      <Link href={currLink} className={classnames(styles.card__wrapper)}>
+        <div className={classnames(styles.card__wrapper)}>
+          <Image
+            src={posterUrl}
+            alt={title}
+            width={100}
+            height={120}
+            className={classnames(styles.image)}
+          />
+
+          <div
+            className={classnames(styles.card__items__wrapper)}
+            onClick={(e) => {
+              e.stopPropagation();
+              dispatchEvent;
+            }}
+          >
+            <div className={classnames(styles.card__text)}>
+              <div className={classnames(styles.card__header)}>{title}</div>
+              <div className={classnames(styles.card__genre)}>{genre}</div>
+            </div>
+          </div>
         </div>
-        <div className={classnames(styles.card__controller)}>
-          <SmallButton isActive={true} color={"red"} iconType={"minus"} />
-          <span>0</span>
-          <SmallButton isActive={true} color={"red"} iconType={"plus"} />
-          <CloseIcon color="#333333" />
-        </div>
-      </div>
+      </Link>
+      <Controller id={id} />
     </div>
   );
 };

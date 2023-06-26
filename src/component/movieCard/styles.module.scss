@@ -12,15 +12,25 @@
         display: flex;
     }
 
-    &__wrapper {
+    &__container {
         width: 1424px;
         height: 168px;
         display: flex;
-        flex-direction: row;
-        gap: 24px;
+        justify-content: space-between;
         background-color: $white;
         border-radius: 8px;
-        padding: 24px;
+        &>*{
+            box-sizing: border-box;
+            margin: 24px; 
+        }
+       /*  padding: 24px; */
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+        flex-grow: 1;
         cursor: pointer;
     }
 
@@ -34,7 +44,7 @@
     }
 
     &__genre {
-        @include fontType($small-font-size, $regular-font-weight, $small-line-height, $text-primary-color,italic);
+        @include fontType($small-font-size, $regular-font-weight, $small-line-height, $text-primary-color, italic);
     }
 }
 
