@@ -1,38 +1,33 @@
-import { StateType, initialState } from '@/business/initialState';
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
-/* export type StateType = Record<any, any> */
-
+export type StateType = Record<string, number>;
+const initialState: StateType = {};
 
 export const cartSlice = createSlice({
-    name: "cart",
-    initialState,
-    reducers: {
-        increment: (state, { payload }: { payload: string }) => {
-            state.ticketAmount
-
-
-        },
-        decrement: (state, { payload }: { payload: string }) => {
-            const count = state[payload];
-            if (!count) {
-                return
-            }
-            if (count === 1) {
-                delete state[payload]
-                return
-            }
-            state[payload] = count - 1;
-
-
-        },
-        reset: () => initialState
-
-
+  name: "cart",
+  initialState,
+  reducers: {
+    increment: (state, { payload }) => {
+      const count = state[payload] || 0;
+      state[payload] = count + 1;
     },
-}
-);
+    decrement: (state, { payload }) => {
+      const count = state[payload];
 
+      if (!count) {
+        return;
+      }
+
+      if (count === 1) {
+        delete state[payload];
+        return;
+      }
+
+      state[payload] = count - 1;
+    },
+    reset: () => initialState,
+  },
+});
 
 export const cartReducer = cartSlice.reducer;
 export const cartActions = cartSlice.actions;

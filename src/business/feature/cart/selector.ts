@@ -1,7 +1,8 @@
-import { StateType } from '@/business/initialState'
+import { StoreType } from "@/business/store";
 
+const selectCartModule = (state: StoreType) => state.cart;
 
-/* const selectCartModule = (state: StateType) => state.cart
-
-
-export const selectProductAmount = (state: StateType, id: string) => selectCartModule(state)[id] || 0 */
+//TODO: smthg with type
+export const selectProductAmount = (state: StoreType, id: string) =>
+  // @ts-ignore
+  selectCartModule(state)[id] || 0;

@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-/* import { cartReducer, cartSlice } from './feature/cart'; */
+import { cartSlice } from "./feature/cart";
 import { movieApi } from "./api/movieApi";
 import { cinemaApi } from "./api/cinemaApi";
 import { filterSlice } from "./feature/filter";
@@ -8,6 +8,7 @@ import { reviewsApi } from "./api/reviewsApi";
 export const store = configureStore({
   reducer: {
     [filterSlice.name]: filterSlice.reducer,
+    [cartSlice.name]: filterSlice.reducer,
     [movieApi.reducerPath]: movieApi.reducer,
     [cinemaApi.reducerPath]: cinemaApi.reducer,
     [reviewsApi.reducerPath]: reviewsApi.reducer,
