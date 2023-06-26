@@ -58,7 +58,7 @@ export default function RootLayout({
         >
           <StoreProvider>
             <Header />
-            {children}
+            <div className={classnames(styles.main)}>{children}</div>
             <Footer />
           </StoreProvider>
         </div>

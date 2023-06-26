@@ -83,9 +83,8 @@ export default function Page() {
   };
 
   return (
-    <div className={classnames(styles.main)}>
+    <>
       <Filter />
-
       <div className={classnames(styles.movie__list)}>
         {currData?.map(({ id, title, genre, posterUrl }: DataType) => {
           return (
@@ -99,6 +98,6 @@ export default function Page() {
           );
         })}
       </div>
-    </div>
+    </>
   );
 }
