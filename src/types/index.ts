@@ -9,3 +9,10 @@ export type DataItem = {
   posterUrl: string;
   reviewIds: Array<string>;
 };
+
+export type ReviewItem = {
+  id: string;
+  name: string;
+  rating: number;
+  text: string;
+};

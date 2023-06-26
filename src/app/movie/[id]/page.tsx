@@ -1,24 +1,65 @@
 "use client";
+import { FC } from "react";
 import Image from "next/image";
+import classnames from "classnames";
+import styles from "./styles.module.scss";
+import portraitPlug from "../../../../public/portraitPlug.png";
 
 import { useGetMovieQuery } from "@/business/api/movieApi";
-import styles from "./styles.module.scss";
 
-import classnames from "classnames";
 import { useGetReviewQuery } from "@/business/api/reviewsApi";
 
-const ReviewItem = () => {
-  return <div></div>;
+const Review: FC<{ id: string }> = ({ id }) => {
+  const { data, isLoading, error } = useGetReviewQuery(id);
+
+  console.log("reviews", data);
+
+  if (isLoading) {
+    return <div className={classnames(styles.main)}>Loading...</div>;
+  }
+
+  if (!data || error) {
+    return <div className={classnames(styles.main)}>NotFound</div>;
+  }
+
+  return (
+    <div className={classnames(styles.review)}>
+      {data?.map((item, index) => {
+        return (
+          <div key={index} className={classnames(styles.movie__card)}>
+            <div className={classnames(styles.review__image)}>
+              <Image
+                src={portraitPlug}
+                alt={item.name}
+                width={32}
+                height={32}
+                className={classnames(styles.image)}
+              />
+            </div>
+            <div className={classnames(styles.review__text)}>
+              <div className={classnames(styles.review__header)}>
+                <div className={classnames(styles.review__title)}>
+                  {item.name}
+                </div>
+                <div className={classnames(styles.review__rating)}>
+                  <span>Оценка: </span>
+                  {item.rating}
+                </div>
+              </div>
+              <div className={classnames(styles.review__description)}>
+                {item.text}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 //TODO: extra request for  reviews
 export default function Movie({ params }: any) {
   const { data, isLoading, error } = useGetMovieQuery(params.id);
-  const {
-    data: reviews,
-    isLoading: isLoadingR,
-    error: errorR,
-  } = useGetReviewQuery(params.id);
 
   if (isLoading) {
     return <div className={classnames(styles.main)}>Loading...</div>;
@@ -29,13 +70,12 @@ export default function Movie({ params }: any) {
   }
 
   console.log("data", data);
-  console.log("reviews", reviews);
 
   console.log("на странице", params.id);
+
   return (
     <div className={classnames(styles.movie__wrapper)}>
       <div className={classnames(styles.movie__card)}>
-        {/* <div className={classnames(styles.image)}> */}
         <Image
           src={data.posterUrl}
           alt={data.title}
@@ -45,15 +85,37 @@ export default function Movie({ params }: any) {
         />
         {/*    </div> */}
         <div className={classnames(styles.card__text)}>
-          <div className={classnames(styles.card__header)}>{data.title}</div>
-          <div>жанр</div>
-          <div>год выпуска</div>
-          <div>рейтинг</div>
-          <div>режиссер</div>
-          <div>описание</div>
+          <div className={classnames(styles.card__caption)}>{data.title}</div>
+          <div className={classnames(styles.table)}>
+            <div className={classnames(styles.table__row)}>
+              <div>жанр: </div>
+              <div>{data.genre}</div>
+            </div>
+            <div className={classnames(styles.table__row)}>
+              <div>год выпуска: </div>
+              <div>{data.releaseYear}</div>
+            </div>
+            <div className={classnames(styles.table__row)}>
+              <div>рейтинг: </div>
+              <div>{data.rating}</div>
+            </div>
+            <div className={classnames(styles.table__row)}>
+              <div>режиссер: </div>
+              <div>{data.director}</div>
+            </div>
+          </div>
+
+          <div className={classnames(styles.description)}>
+            <div className={classnames(styles.description__title)}>
+              описание
+            </div>
+            <div className={classnames(styles.description__text)}>
+              {data.description}
+            </div>
+          </div>
         </div>
       </div>
-      <div className={classnames(styles.review)}></div>
+      <Review id={params.id} />
     </div>
   );
 }
