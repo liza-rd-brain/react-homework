@@ -5,9 +5,18 @@ export const movieApi = createApi({
   reducerPath: "movieAPI",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/api/" }),
   endpoints: (builder) => ({
-    getMovies: builder.query<DataType, {}>({ query: () => "movies" }),
+    getMovies: builder.query<DataType, string | undefined>({
+      query: (cinemaId) =>
+        cinemaId //
+          ? `movies?cinemaId=${cinemaId}`
+          : "movies",
+    }),
+    getMovieByCinema: builder.query({
+      query: (cinemaId) => `movies?cinemaId=${cinemaId}`,
+    }),
     getMovie: builder.query({ query: (movieId) => `movie?movieId=${movieId}` }),
   }),
 });
 
-export const { useGetMoviesQuery, useGetMovieQuery } = movieApi;
+export const { useGetMoviesQuery, useGetMovieQuery, useGetMovieByCinemaQuery } =
+  movieApi;

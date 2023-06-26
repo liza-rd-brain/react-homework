@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 import styles from "./../styles.module.scss";
@@ -39,6 +39,7 @@ const Modal = ({ closeModal, data, type }: ModalType) => {
               ? filterActions.filterByGenre(null)
               : filterActions.filterByCinema(null)
           );
+          closeModal();
         }}
       >
         не выбрано
@@ -51,8 +52,8 @@ const Modal = ({ closeModal, data, type }: ModalType) => {
             e.stopPropagation();
             dispatch(
               type === "genre"
-                ? filterActions.filterByGenre(item.name)
-                : filterActions.filterByCinema(item.name)
+                ? filterActions.filterByGenre({ name: item.name })
+                : filterActions.filterByCinema({ name: item.name, id: item.id })
             );
             closeModal();
           }}
@@ -70,36 +71,54 @@ export const DropDown: FC<DropDownType> = ({
   data,
   placeHolder,
 }) => {
-  type StateType = { hasModal: boolean; target: Element | null };
+  type StateType = { hasModal: boolean };
 
-  const initialState: StateType = {
+  const [state, setState] = useState<StateType>({
     hasModal: false,
-    target: null,
-  };
-  const [state, setState] = useState(initialState);
+  });
 
   const filterState = useSelector(selectFilterModule);
 
-  //TODO:useRef!!!!
+  const currTarget = document.getElementById(type) as HTMLElement;
+
+  /*   console.log("currTarget", currTarget); */
 
   //TODO: обработать клик вне выпадашки! В кастомный хук?
   //useEfect -отписаться от listener!!!
 
-  const currFilter = filterState[`${type}Filter`] || placeHolder;
+  useEffect(
+    () => {
+      const closeModalCallback: Parameters<
+        typeof document.addEventListener
+      >[1] = (e) => {
+        if (!state.hasModal) {
+          return;
+        }
+
+        e.stopPropagation();
+        setState({ hasModal: false });
+      };
+
+      document.addEventListener("click", closeModalCallback);
+      return () => document.removeEventListener("click", closeModalCallback);
+    }, //
+    [state.hasModal]
+  );
+
+  const currFilter = filterState[`${type}Filter`]?.name || placeHolder;
 
   return (
     <div className={classnames(styles.filter__item)}>
       <div>{title}</div>
       <div
+        id={type}
         className={classnames(styles.input, {
           [styles.input__active]: state.hasModal,
         })}
         onClick={(e) => {
           e.stopPropagation();
           setState((prev) => ({
-            ...prev,
             hasModal: !prev.hasModal,
-            target: e.target as Element,
           }));
         }}
       >
@@ -114,16 +133,15 @@ export const DropDown: FC<DropDownType> = ({
       </div>
 
       {state.hasModal &&
-        state.target &&
         createPortal(
           <Modal
             data={data}
             type={type}
             closeModal={() =>
-              setState((prev) => ({ ...prev, hasModal: !prev.hasModal }))
+              setState((prev) => ({ hasModal: !prev.hasModal }))
             }
           />,
-          state.target
+          currTarget
         )}
     </div>
   );

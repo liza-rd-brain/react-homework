@@ -28,22 +28,22 @@ type DataItem = {
 export type DataType = Array<DataItem>;
 
 export default function Page() {
-  const { data, isLoading, error, refetch } = useGetMoviesQuery({});
-
-  console.log("data", data);
-
   const filterState = useSelector(selectFilterModule);
+  const { data, isLoading, error, refetch } = useGetMoviesQuery(
+    filterState.cinemaFilter?.id
+  );
 
   //сделать фильтрацию!
-  console.log("filter", filterState);
+  // console.log("filter", filterState);
 
+  //! здесь пока фильтровка только по жанру
   const filteredData = useMemo(() => {
     if (!data || !filterState.genreFilter) {
       return null;
     } else {
       //фильтровать по жанру -
       const genreItem = GENRE_LIST.find(
-        (item) => item.name === filterState.genreFilter
+        (item) => item.name === filterState.genreFilter.name
       );
       //
 
@@ -57,17 +57,22 @@ export default function Page() {
   }, [filterState.genreFilter, filterState.nameFilter]);
 
   const currData = filteredData || data;
+
   //для серверной перерисовки
-  useEffect(() => {
-    console.log("change", filterState);
-  }, [filterState?.cinemaFilter]);
+  useEffect(
+    () => {
+      refetch();
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [filterState?.cinemaFilter]
+  );
 
   if (isLoading) {
-    return <span>Loading...</span>;
+    return <div className={classnames(styles.main)}>Loading...</div>;
   }
 
   if (!data || error) {
-    return <span>NotFound</span>;
+    return <div className={classnames(styles.main)}>NotFound</div>;
   }
 
   type DataType = {
