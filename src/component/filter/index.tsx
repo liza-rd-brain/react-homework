@@ -1,4 +1,10 @@
+import { ChangeEventHandler, useCallback } from "react";
+import { useDispatch } from "react-redux";
+import debounce from "lodash.debounce";
+
 import { useGetCinemaListQuery } from "@/business/api/cinemaApi";
+import { filterActions } from "@/business/feature/filter";
+
 import { ArrowIcon } from "../Icon/Arrow";
 import { DropDown } from "./DropDown";
 
@@ -7,10 +13,22 @@ import classnames from "classnames";
 
 import { GENRE_LIST } from "@/shared";
 
-//TODO: два фильтра с порталами вынести в общий компонент?
 export const Filter = () => {
-  //TODO: здесь  будет место запросы списка кинотеатров?
   const { data: cinemaList, isLoading, error } = useGetCinemaListQuery({});
+  const dispatch = useDispatch();
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps, react-hooks/rules-of-hooks
+  const changeInput: ChangeEventHandler<HTMLInputElement> = useCallback(
+    debounce(
+      (e) => {
+        dispatch(filterActions.filterByName(e.target.value));
+        /*  console.log(e.target.value); */
+      },
+      300,
+      { trailing: true }
+    ),
+    []
+  );
 
   if (isLoading) {
     return <div className={classnames(styles.filter__wrapper)}>Loading...</div>;
@@ -25,7 +43,6 @@ export const Filter = () => {
       <span>Фильтр поиска</span>
       <div className={classnames(styles.filter__container)}>
         <div className={classnames(styles.filter__item)}>
-          {/* <div>Название</div> */}
           <label htmlFor="name">
             Название
             <input
@@ -34,6 +51,7 @@ export const Filter = () => {
               type="text"
               autoComplete="off"
               placeholder="Введите название"
+              onChange={changeInput}
             />
           </label>
         </div>

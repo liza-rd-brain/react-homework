@@ -18,10 +18,10 @@ export const filterSlice = createSlice({
   name: "filter",
   initialState,
   reducers: {
-    filterByName: (
-      state,
-      { payload }: { payload: { name: string } | null }
-    ) => {},
+    filterByName: (state, { payload }: { payload: string | null }) => {
+      console.log("payload", payload);
+      state.nameFilter = payload ? payload : null;
+    },
     filterByGenre: (
       state,
       { payload }: { payload: { name: string } | null }

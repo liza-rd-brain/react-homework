@@ -44,7 +44,6 @@ export default function Page() {
     } else {
       let newData = data;
 
-      //если есть фильтр по жанру
       if (filterState?.genreFilter.name) {
         const genreItem = GENRE_LIST.find(
           (item) => item.name === filterState.genreFilter.name
@@ -53,9 +52,15 @@ export default function Page() {
           return genreItem?.eng === item.genre;
         });
       }
-      if (filterState?.cinemaFilter?.name) {
-        console.log("newData", newData);
+
+      if (filterState.nameFilter) {
+        newData = newData?.filter((item) => {
+          const currTitle = item.title.toLowerCase();
+          const currFilter = filterState.nameFilter?.toLowerCase() as string;
+          return currTitle.includes(currFilter);
+        });
       }
+
       return newData;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
