@@ -8,7 +8,6 @@ import classnames from "classnames/bind";
 
 type ButtonProps = {
   isActive: boolean;
-  color: string;
   iconType: "plus" | "minus";
   onClick: () => void;
 };
@@ -28,7 +27,6 @@ let cx = classnames.bind(styles);
 
 export const SmallButton: FC<ButtonProps> = ({
   isActive,
-  color,
   iconType,
   onClick,
 }) => {
@@ -37,7 +35,8 @@ export const SmallButton: FC<ButtonProps> = ({
 
   const classList = cx({
     button: true,
-    button_small: true,
+    button__small: true,
+    button__active: isActive,
   });
 
   return (

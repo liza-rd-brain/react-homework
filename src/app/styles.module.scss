@@ -3,19 +3,19 @@
 
 
 .container {
-    width: 1920px;
-    height: 100%;
-    // min-height: calc(100vh - 84px - 72px);
+  width: 1920px;
+  height: 100%;
+  // min-height: calc(100vh - 84px - 72px);
 
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-between;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
 
-    background-color: $light-gray;
+  background-color: $light-gray;
 
-    margin: 0 auto;
-    overflow-x: hidden;
-    overflow-y: auto;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 
 }
 
@@ -25,48 +25,70 @@
 //TODO: добавить cursor pointer
 //TODO: общий border-radius
 .header {
-    grid-area: header;
+  grid-area: header;
+  display: flex;
+  top: 0;
+  position: sticky;
+  height: 84px;
+  background-color: $gray;
+  padding: 24px 32px;
+  @include fontType($big-font-size, $bold-font-weight, $big-line-height, $white);
+
+}
+
+.counter {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: $orange;
+  border-radius: 8px;
+  @include fontType($small-font-size, $medium-font-weight, $small-line-height, $white);
+
+
+  &__wrapper{
     display: flex;
-    top: 0;
-    position: sticky;
-    height: 84px;
-    background-color: $gray;
-    padding: 24px 32px;
-    @include fontType($big-font-size, $bold-font-weight, $big-line-height, $white);
+    gap:8px;
+    justify-content: center;
+    align-items: center;
+  }
 
 }
 
 .nav__wrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .footer {
-    grid-area: footer;
-    /*  display: flex; */
-    height: 86px;
-    background-color: $gray;
-    padding: 24px 32px;
-    @include fontType($regular-font-size, $regular-font-weight, $regular-line-height, $white)
+  grid-area: footer;
+  /*  display: flex; */
+  height: 86px;
+  background-color: $gray;
+  padding: 24px 32px;
+  @include fontType($regular-font-size, $regular-font-weight, $regular-line-height, $white)
 }
 
 .main {
-    display: flex;
-    grid-template-columns: repeat(2, 1fr);
-    background-color: $light-gray;
-    padding: 24px 32px;
-    gap: 24px;
-    justify-self: start;
-    align-self: start;
-    min-height: calc(100vh - 98px - 72px);
-/*     height: 100%; */
+  display: flex;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: $light-gray;
+  padding: 24px 32px;
+  gap: 24px;
+  justify-self: start;
+  align-self: start;
+  min-height: calc(100vh - 98px - 72px);
+  /*     height: 100%; */
 }
 
-.movie__list{
-    display: flex;
-    flex-direction: column;
-    gap:$small-gap; 
+.movie__list {
+  display: flex;
+  flex-direction: column;
+  gap: $small-gap;
 
 }
