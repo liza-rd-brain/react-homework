@@ -3,7 +3,7 @@ import { CloseIcon } from "../Icon/Close";
 import { SmallButton } from "../SmallButton";
 import styles from "./styles.module.scss";
 import classnames from "classnames";
-import { selectProductAmount } from "@/business/feature/cart/selector";
+import { selectTicketAmount } from "@/business/feature/cart/selector";
 import { cartActions } from "@/business/feature/cart";
 
 type ControllerType = {
@@ -13,40 +13,47 @@ type ControllerType = {
   id: string;
 };
 
-export const Controller = ({ min, max, count = 0, id }: ControllerType) => {
+const MIN_AMOUNT = 0;
+const MAX_AMOUNT = 30;
+
+export const Controller = ({ id }: ControllerType) => {
   const dispatch = useDispatch();
 
   // @ts-ignore
-  const amount = useSelector((state) => selectProductAmount(state, id));
+  const ticketAmount = useSelector((state) => selectTicketAmount(state, id));
 
-  console.log("amount", amount);
+  console.log("ticketAmount", ticketAmount);
   //достаем id из мо
 
   return (
     <div className={classnames(styles.controller__container)}>
       <div className={classnames(styles.controller)}>
         <SmallButton
-          isActive={true}
-          color={"red"}
+          isActive={ticketAmount > MIN_AMOUNT}
           iconType={"minus"}
           onClick={() => {
-            console.log("click");
-            dispatch(cartActions.decrement(id));
+            ticketAmount > MIN_AMOUNT && dispatch(cartActions.decrement(id));
           }}
         />
-        <div className={classnames(styles.count)}>{amount}</div>
+        <div className={classnames(styles.count)}>{ticketAmount}</div>
         <SmallButton
-          isActive={true}
-          color={"red"}
+          isActive={ticketAmount < MAX_AMOUNT}
           iconType={"plus"}
           onClick={() => {
-            dispatch(cartActions.increment(id));
+            ticketAmount < MAX_AMOUNT && dispatch(cartActions.increment(id));
           }}
         />
       </div>
-      <div className={classnames(styles.icon__wrapper)}>
-        <CloseIcon color="#333333" />
-      </div>
+      {ticketAmount > MIN_AMOUNT && (
+        <div
+          className={classnames(styles.icon__wrapper)}
+          onClick={() => {
+            dispatch(cartActions.reset(id));
+          }}
+        >
+          <CloseIcon color="#333333" />
+        </div>
+      )}
     </div>
   );
 };
