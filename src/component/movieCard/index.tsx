@@ -10,6 +10,7 @@ import { SmallButton } from "../SmallButton";
 import { CloseIcon } from "../Icon/Close";
 import { Controller } from "../Controller";
 import Link from "next/link";
+import { GENRE_LIST } from "@/shared";
 
 type CardPropsType = {
   id: string;
@@ -25,6 +26,8 @@ export const MovieCard: FC<CardPropsType> = ({
   posterUrl,
 }) => {
   const currLink = `/movie/${id}`;
+
+  const rusGenre = GENRE_LIST.find((item) => item.eng === genre);
 
   return (
     <div className={classnames(styles.card__container)}>
@@ -47,7 +50,9 @@ export const MovieCard: FC<CardPropsType> = ({
           >
             <div className={classnames(styles.card__text)}>
               <div className={classnames(styles.card__header)}>{title}</div>
-              <div className={classnames(styles.card__genre)}>{genre}</div>
+              <div className={classnames(styles.card__genre)}>
+                {rusGenre?.name}
+              </div>
             </div>
           </div>
         </div>

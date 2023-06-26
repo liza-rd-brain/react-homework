@@ -9,6 +9,8 @@ import portraitPlug from "../../../../public/portraitPlug.png";
 import { useGetMovieQuery } from "@/business/api/movieApi";
 
 import { useGetReviewQuery } from "@/business/api/reviewsApi";
+import { Controller } from "@/component/Controller";
+import { GENRE_LIST } from "@/shared";
 
 const Review: FC<{ id: string }> = ({ id }) => {
   const { data, isLoading, error } = useGetReviewQuery(id);
@@ -70,9 +72,7 @@ export default function Movie({ params }: any) {
     return <div className={classnames(styles.main)}>NotFound</div>;
   }
 
-  console.log("data", data);
-
-  console.log("на странице", params.id);
+  const rusGenre = GENRE_LIST.find((item) => item.eng === data.genre);
 
   return (
     <div className={classnames(styles.movie__wrapper)}>
@@ -84,13 +84,14 @@ export default function Movie({ params }: any) {
           height={500}
           className={classnames(styles.image)}
         />
-        {/*    </div> */}
         <div className={classnames(styles.card__text)}>
-          <div className={classnames(styles.card__caption)}>{data.title}</div>
+          <div className={classnames(styles.card__caption)}>
+            {data.title} <Controller id={params.id} />
+          </div>
           <div className={classnames(styles.table)}>
             <div className={classnames(styles.table__row)}>
               <div>жанр: </div>
-              <div>{data.genre}</div>
+              <div>{rusGenre?.name}</div>
             </div>
             <div className={classnames(styles.table__row)}>
               <div>год выпуска: </div>

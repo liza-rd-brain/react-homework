@@ -10,13 +10,15 @@
     &__container {
         display: flex;
         gap: 24px;
+        align-items: flex-start;;
     }
 }
 
-.count{
+.count {
     cursor: default;
-
+    @include fontType($regular-font-size, $medium-font-weight, $small-line-height, $text-primary-color);
 }
+
 .icon {
     &__wrapper {
         cursor: pointer;
