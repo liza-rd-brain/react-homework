@@ -28,13 +28,21 @@
     padding: 24px;
     display: flex;
     flex-direction: column;
+
+
     gap: $small-gap;
     background-color: $white;
     border-radius: 8px;
     outline: none;
     list-style: none;
     cursor: pointer;
-    
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between
+
+    }
 
     @include fontType($fz-6, $medium-font-weight, $medium-line-height, $text-primary-color);
 
@@ -45,33 +53,11 @@
     }
 }
 
-
-.container {
-    display: flex;
-    flex-direction: column;
-
-}
-
-.image {
-    width: 100px;
-    height: 120px;
-    background-color: red;
-}
-
-.card__items__wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
-}
-
-
-.card__controller {
-    display: flex;
-
-}
-
-.review {
-    margin: 24px;
-    padding: 24px;
+.icon__wrapper {
+    pointer-events: none;
+    &__reversed {
+        &>* {
+            transform: rotate(180deg);
+        }
+    }
 }

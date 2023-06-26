@@ -11,6 +11,7 @@ import {
 
 import classnames from "classnames";
 import styles from "./styles.module.scss";
+import { ArrowIcon } from "@/component/Icon/Arrow";
 
 type ContextType = { isOn: boolean; setIsOn: (isOn: boolean) => void };
 type MenuContextType = {
@@ -103,9 +104,22 @@ export default function FAQ() {
             [styles.summary__caption]: !hasInteract,
           })}
         >
-          <div>{title}</div>
+          <div className={classnames(styles.summary__header)}>
+            <div>{title}</div>
+            {hasInteract && (
+              <div
+                className={classnames(styles.icon__wrapper, {
+                  [styles.icon__wrapper__reversed]: activeGroup,
+                })}
+              >
+                <ArrowIcon color="#999FA6" />
+              </div>
+            )}
+          </div>
+
           {activeGroup === title && <div>{children}</div>}
         </summary>
+        <div className={classnames(styles.icon__wrapper)}></div>
       </details>
     );
   };
