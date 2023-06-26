@@ -1,20 +1,49 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+  PersistConfig,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
 import { cartSlice } from "./feature/cart";
 import { movieApi } from "./api/movieApi";
 import { cinemaApi } from "./api/cinemaApi";
 import { filterSlice } from "./feature/filter";
 import { reviewsApi } from "./api/reviewsApi";
 
+const reducers = combineReducers({
+  [cartSlice.name]: cartSlice.reducer,
+  [filterSlice.name]: filterSlice.reducer,
+  [movieApi.reducerPath]: movieApi.reducer,
+  [cinemaApi.reducerPath]: cinemaApi.reducer,
+  [reviewsApi.reducerPath]: reviewsApi.reducer,
+});
+
+const persistConfig: PersistConfig<ReturnType<typeof reducers>> = {
+  key: "root",
+  version: 1,
+  storage,
+  whitelist: [
+    cartSlice.name, //
+    filterSlice.name,
+  ],
+};
+
 export const store = configureStore({
-  reducer: {
-    [cartSlice.name]: cartSlice.reducer,
-    [filterSlice.name]: filterSlice.reducer,
-    [movieApi.reducerPath]: movieApi.reducer,
-    [cinemaApi.reducerPath]: cinemaApi.reducer,
-    [reviewsApi.reducerPath]: reviewsApi.reducer,
-  },
+  reducer: persistReducer(persistConfig, reducers),
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat([
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat([
       movieApi.middleware, //
       cinemaApi.middleware,
       reviewsApi.middleware,
@@ -22,5 +51,7 @@ export const store = configureStore({
   devTools: process.env.NODE_ENV !== "production",
 });
 
+export const persistor = persistStore(store);
+
 /* console.log("store", store.getState()) */
-export type StoreType = ReturnType<typeof store.getState>;
+export type StoreType = ReturnType<typeof reducers>;

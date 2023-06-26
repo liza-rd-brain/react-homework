@@ -1,20 +1,21 @@
 import { ChangeEventHandler, useCallback } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import debounce from "lodash.debounce";
 
 import { useGetCinemaListQuery } from "@/business/api/cinemaApi";
 import { filterActions } from "@/business/feature/filter";
 
-import { ArrowIcon } from "../Icon/Arrow";
 import { DropDown } from "./DropDown";
 
 import styles from "./styles.module.scss";
 import classnames from "classnames";
 
 import { GENRE_LIST } from "@/shared";
+import { selectFilterModule } from "@/business/feature/filter/selector";
 
 export const Filter = () => {
   const { data: cinemaList, isLoading, error } = useGetCinemaListQuery({});
+  const { nameFilter } = useSelector(selectFilterModule);
   const dispatch = useDispatch();
 
   // eslint-disable-next-line react-hooks/exhaustive-deps, react-hooks/rules-of-hooks
@@ -50,6 +51,7 @@ export const Filter = () => {
               type="text"
               autoComplete="off"
               placeholder="Введите название"
+              defaultValue={nameFilter || ""}
               onChange={changeInput}
             />
           </label>
