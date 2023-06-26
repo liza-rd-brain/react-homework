@@ -19,8 +19,9 @@ const MAX_AMOUNT = 30;
 export const Controller = ({ id }: ControllerType) => {
   const dispatch = useDispatch();
 
-  // @ts-ignore
-  const ticketAmount = useSelector((state) => selectTicketAmount(state, id));
+  const ticketAmount = useSelector((state) =>
+    selectTicketAmount(state as Parameters<typeof selectTicketAmount>[0], id)
+  );
 
   console.log("ticketAmount", ticketAmount);
   //достаем id из мо
