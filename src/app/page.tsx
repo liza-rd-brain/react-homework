@@ -38,23 +38,30 @@ export default function Page() {
 
   //! здесь пока фильтровка только по жанру
   const filteredData = useMemo(() => {
-    if (!data || !filterState.genreFilter) {
+    //если нет фильмов или фильтров вернем null
+    if (!data /* || !filterState.genreFilter */) {
       return null;
     } else {
-      //фильтровать по жанру -
-      const genreItem = GENRE_LIST.find(
-        (item) => item.name === filterState.genreFilter.name
-      );
-      //
+      let newData = data;
 
-      const newData = data?.filter((item) => {
-        return genreItem?.eng === item.genre;
-      });
-      console.log(newData, "newData");
+      //если есть фильтр по жанру
+      if (filterState?.genreFilter.name) {
+        const genreItem = GENRE_LIST.find(
+          (item) => item.name === filterState.genreFilter.name
+        );
+        newData = data?.filter((item) => {
+          return genreItem?.eng === item.genre;
+        });
+      }
+      if (filterState?.cinemaFilter?.name) {
+        console.log("newData", newData);
+      }
       return newData;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filterState.genreFilter, filterState.nameFilter]);
+  }, [filterState.genreFilter, filterState.nameFilter, data]);
+
+  console.log("на экране", filteredData);
 
   const currData = filteredData || data;
 

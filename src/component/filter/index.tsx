@@ -12,8 +12,6 @@ export const Filter = () => {
   //TODO: здесь  будет место запросы списка кинотеатров?
   const { data: cinemaList, isLoading, error } = useGetCinemaListQuery({});
 
-  console.log("cinemaData", cinemaList);
-
   if (isLoading) {
     return <div className={classnames(styles.filter__wrapper)}>Loading...</div>;
   }

@@ -109,7 +109,7 @@ export default function FAQ() {
             {hasInteract && (
               <div
                 className={classnames(styles.icon__wrapper, {
-                  [styles.icon__wrapper__reversed]: activeGroup,
+                  [styles.icon__wrapper__reversed]: activeGroup === title,
                 })}
               >
                 <ArrowIcon color="#999FA6" />
