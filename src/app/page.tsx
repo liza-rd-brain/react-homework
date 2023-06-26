@@ -11,19 +11,8 @@ import { useGetMovieQuery, useGetMoviesQuery } from "@/business/api/movieApi";
 import { useEffect, useMemo } from "react";
 import { selectFilterModule } from "@/business/feature/filter/selector";
 import { GENRE_LIST } from "@/shared";
-//main page????
-
-type DataItem = {
-  description: "string";
-  id: string;
-  genre: string;
-  title: string;
-  rating: number;
-  director: string;
-  releaseYear: 2001;
-  posterUrl: string;
-  reviewIds: Array<string>;
-};
+import Link from "next/link";
+import { DataItem } from "@/types";
 
 export type DataType = Array<DataItem>;
 
@@ -36,10 +25,8 @@ export default function Page() {
   //сделать фильтрацию!
   // console.log("filter", filterState);
 
-  //! здесь пока фильтровка только по жанру
   const filteredData = useMemo(() => {
-    //если нет фильмов или фильтров вернем null
-    if (!data /* || !filterState.genreFilter */) {
+    if (!data) {
       return null;
     } else {
       let newData = data;
@@ -99,14 +86,16 @@ export default function Page() {
       <Filter />
       <div className={classnames(styles.movie__list)}>
         {currData?.map(({ id, title, genre, posterUrl }: DataType) => {
+          const currLink = `/movie/${id}`;
           return (
-            <MovieCard
-              id={id}
-              key={id}
-              title={title}
-              genre={genre}
-              posterUrl={posterUrl}
-            />
+            <Link href={currLink} key={id}>
+              <MovieCard
+                id={id}
+                title={title}
+                genre={genre}
+                posterUrl={posterUrl}
+              />
+            </Link>
           );
         })}
       </div>

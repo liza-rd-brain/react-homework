@@ -37,7 +37,7 @@ const Footer = () => {
     <footer className={classnames(styles.footer)}>
       <div className={classnames(styles.nav__wrapper)}>
         <div>
-          <Link href="/faq">Вопросы-ответы</Link>{" "}
+          <Link href="/faq">Вопросы-ответы</Link>
         </div>
         <Link href="/about">О нас</Link>
       </div>

@@ -12,9 +12,10 @@
 
         flex-direction: column;
         background-color: $white;
-        border-radius: $thin-border-radius;
+        border-radius: $medium-border-radius;
         padding: $common-padding;
         gap: $common-gap;
+       
     }
 
     &__container {

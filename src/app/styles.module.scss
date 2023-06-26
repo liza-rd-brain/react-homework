@@ -64,7 +64,9 @@
 /*     height: 100%; */
 }
 
-/* .main {
+.movie__list{
     display: flex;
-    width: 100%;
-} */
+    flex-direction: column;
+    gap:$small-gap; 
+
+}

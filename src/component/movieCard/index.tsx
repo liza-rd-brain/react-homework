@@ -35,7 +35,13 @@ export const MovieCard: FC<CardPropsType> = ({
         className={classnames(styles.image)}
       />
 
-      <div className={classnames(styles.card__items__wrapper)}>
+      <div
+        className={classnames(styles.card__items__wrapper)}
+        onClick={(e) => {
+          e.stopPropagation();
+          dispatchEvent;
+        }}
+      >
         <div className={classnames(styles.card__text)}>
           <div className={classnames(styles.card__header)}>{title}</div>
           <div className={classnames(styles.card__genre)}>{genre}</div>
