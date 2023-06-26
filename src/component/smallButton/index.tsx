@@ -10,6 +10,7 @@ type ButtonProps = {
   isActive: boolean;
   color: string;
   iconType: "plus" | "minus";
+  onClick: () => void;
 };
 
 const getIcons = ({ iconType }: Pick<ButtonProps, "iconType">) => {
@@ -25,7 +26,12 @@ const getIcons = ({ iconType }: Pick<ButtonProps, "iconType">) => {
 
 let cx = classnames.bind(styles);
 
-export const SmallButton: FC<ButtonProps> = ({ isActive, color, iconType }) => {
+export const SmallButton: FC<ButtonProps> = ({
+  isActive,
+  color,
+  iconType,
+  onClick,
+}) => {
   //TODO: add isActive class,color
   /*  const btnClass = classnames({ btn: true, btn__small: true }); */
 
@@ -34,5 +40,9 @@ export const SmallButton: FC<ButtonProps> = ({ isActive, color, iconType }) => {
     button_small: true,
   });
 
-  return <button className={classList}>{getIcons({ iconType })}</button>;
+  return (
+    <button className={classList} onClick={onClick}>
+      {getIcons({ iconType })}
+    </button>
+  );
 };

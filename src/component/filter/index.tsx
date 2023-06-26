@@ -22,7 +22,6 @@ export const Filter = () => {
     debounce(
       (e) => {
         dispatch(filterActions.filterByName(e.target.value));
-        /*  console.log(e.target.value); */
       },
       300,
       { trailing: true }

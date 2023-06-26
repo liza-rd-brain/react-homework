@@ -8,6 +8,7 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     increment: (state, { payload }) => {
+      console.log("incremrnt", payload);
       const count = state[payload] || 0;
       state[payload] = count + 1;
     },
@@ -29,5 +30,4 @@ export const cartSlice = createSlice({
   },
 });
 
-export const cartReducer = cartSlice.reducer;
 export const cartActions = cartSlice.actions;

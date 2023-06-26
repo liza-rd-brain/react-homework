@@ -4,6 +4,7 @@ import { SmallButton } from "../SmallButton";
 import styles from "./styles.module.scss";
 import classnames from "classnames";
 import { selectProductAmount } from "@/business/feature/cart/selector";
+import { cartActions } from "@/business/feature/cart";
 
 type ControllerType = {
   min?: number;
@@ -22,19 +23,30 @@ export const Controller = ({ min, max, count = 0, id }: ControllerType) => {
   //достаем id из мо
 
   return (
-    <div
-      className={classnames(styles.controller__container)}
-      onClick={(e) => {
-        console.log("click controller");
-        e.stopPropagation();
-      }}
-    >
+    <div className={classnames(styles.controller__container)}>
       <div className={classnames(styles.controller)}>
-        <SmallButton isActive={true} color={"red"} iconType={"minus"} />
-        <span>{count}</span>
-        <SmallButton isActive={true} color={"red"} iconType={"plus"} />
+        <SmallButton
+          isActive={true}
+          color={"red"}
+          iconType={"minus"}
+          onClick={() => {
+            console.log("click");
+            dispatch(cartActions.decrement(id));
+          }}
+        />
+        <div className={classnames(styles.count)}>{amount}</div>
+        <SmallButton
+          isActive={true}
+          color={"red"}
+          iconType={"plus"}
+          onClick={() => {
+            dispatch(cartActions.increment(id));
+          }}
+        />
       </div>
-      <CloseIcon color="#333333" />
+      <div className={classnames(styles.icon__wrapper)}>
+        <CloseIcon color="#333333" />
+      </div>
     </div>
   );
 };

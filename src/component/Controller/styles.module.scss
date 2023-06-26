@@ -4,11 +4,21 @@
 
 .controller {
     display: flex;
-    align-items: start ;
+    align-items: start;
     gap: 8px;
 
     &__container {
         display: flex;
         gap: 24px;
+    }
+}
+
+.count{
+    cursor: default;
+
+}
+.icon {
+    &__wrapper {
+        cursor: pointer;
     }
 }

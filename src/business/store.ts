@@ -7,8 +7,8 @@ import { reviewsApi } from "./api/reviewsApi";
 
 export const store = configureStore({
   reducer: {
+    [cartSlice.name]: cartSlice.reducer,
     [filterSlice.name]: filterSlice.reducer,
-    [cartSlice.name]: filterSlice.reducer,
     [movieApi.reducerPath]: movieApi.reducer,
     [cinemaApi.reducerPath]: cinemaApi.reducer,
     [reviewsApi.reducerPath]: reviewsApi.reducer,
