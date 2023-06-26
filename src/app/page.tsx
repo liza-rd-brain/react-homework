@@ -86,9 +86,7 @@ export default function Page() {
       <Filter />
       <div className={classnames(styles.movie__list)}>
         {currData?.map(({ id, title, genre, posterUrl }: DataType) => {
-          // const currLink = `/movie/${id}`;
           return (
-            // <Link href={currLink} key={id}>
             <MovieCard
               key={id}
               id={id}

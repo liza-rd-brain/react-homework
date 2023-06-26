@@ -3,24 +3,24 @@
 
 
 .controller {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
 
-    &__container {
-        display: flex;
-        gap: 24px;
-        align-items: flex-start;;
-    }
+  &__container {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
 }
 
 .count {
-    cursor: default;
-    @include fontType($regular-font-size, $medium-font-weight, $small-line-height, $text-primary-color);
+  cursor: default;
+  @include fontType($regular-font-size, $medium-font-weight, $small-line-height, $text-primary-color);
 }
 
 .icon {
-    &__wrapper {
-        cursor: pointer;
-    }
+  &__wrapper {
+    cursor: pointer;
+  }
 }

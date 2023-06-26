@@ -1,11 +1,12 @@
 "use client";
-import "./globals.css";
+
 import Link from "next/link";
 import { useSelector } from "react-redux";
 
+import "./globals.css";
 import { roboto } from "./font";
-import styles from "./styles.module.scss";
 import classnames from "classnames";
+import styles from "./styles.module.scss";
 
 import { CartIcon } from "../component/Icon/Cart";
 import { StoreProvider } from "@/business/StoreProvider";
