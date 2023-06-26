@@ -1,15 +1,54 @@
 @import "../../style/variables.scss";
-@import "../../style/variables.scss";
+@import "../../style/mixin.scss";
 
-.card__wrapper {
-    width: 1424px;
-    height: 168px;
+
+.accordion {
+
+    &__container {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 16px;
+
+    }
+
+    &__item {
+        @include fontType($small-font-size, $medium-font-weight, $regular-line-height, $text-primary-color);
+    }
+
+}
+
+.details {
+    outline: none;
+
+}
+
+.summary {
+    width: 100%;
+    padding: 24px;
     display: flex;
-    flex-direction: row;
-    gap: 24px;
+    flex-direction: column;
+    gap: $small-gap;
     background-color: $white;
     border-radius: 8px;
-    padding: 24px;
+    outline: none;
+    list-style: none;
+    cursor: pointer;
+    
+
+    @include fontType($fz-6, $medium-font-weight, $medium-line-height, $text-primary-color);
+
+    &__caption {
+        @include fontType($big-font-size, $medium-font-weight, $medium-line-height, $text-primary-color);
+
+        pointer-events: none;
+    }
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
 
 }
 

@@ -1,8 +1,10 @@
 import { useGetCinemaListQuery } from "@/business/api/cinemaApi";
 import { ArrowIcon } from "../Icon/Arrow";
 import { DropDown } from "./DropDown";
+
 import styles from "./styles.module.scss";
 import classnames from "classnames";
+
 import { GENRE_LIST } from "@/shared";
 
 //TODO: два фильтра с порталами вынести в общий компонент?

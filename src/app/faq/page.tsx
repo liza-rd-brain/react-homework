@@ -1,6 +1,5 @@
 "use client";
 
-import { initialState } from "@/business/feature/filter";
 import {
   ReactElement,
   ReactNode,
@@ -9,6 +8,9 @@ import {
   useContext,
   useState,
 } from "react";
+
+import classnames from "classnames";
+import styles from "./styles.module.scss";
 
 type ContextType = { isOn: boolean; setIsOn: (isOn: boolean) => void };
 type MenuContextType = {
@@ -41,7 +43,7 @@ export default function FAQ() {
       return null;
     }
 
-    return <span>on</span>;
+    return <div>on</div>;
   };
 
   ToggleCompound.TextOff = function TextOff() {
@@ -51,22 +53,22 @@ export default function FAQ() {
       return null;
     }
 
-    return <span>off</span>;
+    return <div>off</div>;
   };
 
   ToggleCompound.SwitchButton = function SwitchButton() {
     const { isOn, setIsOn } = useContext(ToggleContext) as ContextType;
-    return <button onClick={() => setIsOn(!isOn)}>switch</button>;
+    return <div onClick={() => setIsOn(!isOn)}>switch</div>;
   };
 
   ToggleCompound.CustomSwitchButton = function SwitchButton() {
     const { isOn, setIsOn } = useContext(ToggleContext) as ContextType;
-    return <button onClick={() => setIsOn(!isOn)}>switch</button>;
+    return <div onClick={() => setIsOn(!isOn)}>switch</div>;
   };
 
   const MenuContext = createContext<MenuContextType | false>(false);
 
-  const MenuAccordion = ({ children }: { children?: ReactNode }) => {
+  const FaqAccordion = ({ children }: { children?: ReactNode }) => {
     const [activeGroup, setActiveGroup] = useState();
 
     //TODO: разрезолвить any
@@ -81,54 +83,60 @@ export default function FAQ() {
     );
   };
 
-  MenuAccordion.Group = function MenuGroup({
+  FaqAccordion.Group = function MenuGroup({
     children,
     title,
+    hasInteract = true,
   }: {
     children?: ReactNode;
     title: string;
+    hasInteract?: boolean;
   }) {
     const { activeGroup, switchGroup } = useContext(
       MenuContext
     ) as MenuContextType;
     return (
-      <div>
-        <button onClick={() => switchGroup(title)}>{title}</button>
-        {activeGroup === title && <div>{children}</div>}
-      </div>
+      <details className={classnames(styles.details)}>
+        <summary
+          onClick={() => switchGroup(title)}
+          className={classnames(styles.summary, {
+            [styles.summary__caption]: !hasInteract,
+          })}
+        >
+          <div>{title}</div>
+          {activeGroup === title && <div>{children}</div>}
+        </summary>
+      </details>
     );
   };
 
-  MenuAccordion.Item = function MenuItem({
+  FaqAccordion.Item = function MenuItem({
     children,
     title,
   }: {
     children?: ReactNode;
     title: string;
   }) {
-    return <div>{title}</div>;
+    return <div className={classnames(styles.accordion__item)}>{title}</div>;
   };
 
   return (
-    <div>
-      <MenuAccordion>
-        <MenuAccordion.Item title="Главная" />
-        <MenuAccordion.Group title="Фильм">
-          <MenuAccordion.Item title="Топ" />
-          <MenuAccordion.Item title="Популярные" />
-          <MenuAccordion.Item title="Мои любимые" />
-        </MenuAccordion.Group>
-        <MenuAccordion.Group title="Сериал">
-          <MenuAccordion.Item title="Топ" />
-          <MenuAccordion.Item title="Популярные" />
-          <MenuAccordion.Item title="Мои любимые" />
-        </MenuAccordion.Group>
-        <MenuAccordion.Group title="Служебное">
-          <MenuAccordion.Item title="О нас" />
-          <MenuAccordion.Item title="Вопросы" />
-          <MenuAccordion.Item title="Ответы" />
-        </MenuAccordion.Group>
-      </MenuAccordion>
+    <div className={classnames(styles.accordion__container)}>
+      <FaqAccordion>
+        <FaqAccordion.Group title="Вопросы-ответы" hasInteract={false} />
+        <FaqAccordion.Group title="Что такое Билетопоиск?">
+          <FaqAccordion.Item title="Мы — крупнейший сервис о кино в рунете. На нем вы сможете посмотреть фильмы и сериалы, купить билеты в кино, узнать рейтинги популярных видео и интересные факты, поставить фильмам оценки, написать рецензии и дополнить описание фильмов." />
+        </FaqAccordion.Group>
+        <FaqAccordion.Group title="Какой компании принадлежит Билетопоиск?">
+          <FaqAccordion.Item title="Мы — крупнейший сервис о кино в рунете. На нем вы сможете посмотреть фильмы и сериалы, купить билеты в кино, узнать рейтинги популярных видео и интересные факты, поставить фильмам оценки, написать рецензии и дополнить описание фильмов." />
+        </FaqAccordion.Group>
+        <FaqAccordion.Group title="Как купить билет на Билетопоиск?">
+          <FaqAccordion.Item title="Мы — крупнейший сервис о кино в рунете. На нем вы сможете посмотреть фильмы и сериалы, купить билеты в кино, узнать рейтинги популярных видео и интересные факты, поставить фильмам оценки, написать рецензии и дополнить описание фильмов." />
+        </FaqAccordion.Group>
+        <FaqAccordion.Group title="Как оставить отзыв на Билетопоиск?">
+          <FaqAccordion.Item title="Мы — крупнейший сервис о кино в рунете. На нем вы сможете посмотреть фильмы и сериалы, купить билеты в кино, узнать рейтинги популярных видео и интересные факты, поставить фильмам оценки, написать рецензии и дополнить описание фильмов." />
+        </FaqAccordion.Group>
+      </FaqAccordion>
     </div>
   );
 }
