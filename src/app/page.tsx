@@ -99,9 +99,6 @@ export default function Page() {
           );
         })}
       </div>
-      {/* <SmallButton isActive={true} color={"red"} iconType={"minus"} />
-      <MovieCard />
-      <>TEXT</> */}
     </div>
   );
 }

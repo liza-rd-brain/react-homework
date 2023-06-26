@@ -1,0 +1,38 @@
+@import "../../style/variables.scss";
+@import "../../style/variables.scss";
+
+.card__wrapper {
+    width: 1424px;
+    height: 168px;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    background-color: $white;
+    border-radius: 8px;
+    padding: 24px;
+
+}
+
+.image {
+    width: 100px;
+    height: 120px;
+    background-color: red;
+}
+
+.card__items__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.card__controller {
+    display: flex;
+
+}
+
+.review {
+    margin: 24px;
+    padding: 24px;
+}
