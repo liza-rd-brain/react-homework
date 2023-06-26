@@ -1,14 +1,31 @@
 "use client";
 
-import { createContext, useCallback, useContext, useState } from "react";
+import { initialState } from "@/business/feature/filter";
+import {
+  ReactElement,
+  ReactNode,
+  createContext,
+  useCallback,
+  useContext,
+  useState,
+} from "react";
 
-type ContextType = { isOn: boolean; setIsOn: (isOn: any) => boolean };
-type MenuContextType = { activeGroup: any; switchGroup: (title: any) => void };
+type ContextType = { isOn: boolean; setIsOn: (isOn: boolean) => void };
+type MenuContextType = {
+  activeGroup: string | undefined;
+  switchGroup: (title: string) => void;
+};
 
 export default function FAQ() {
   const ToggleContext = createContext<{} | ContextType>({} as ContextType);
 
-  const ToggleCompound = ({ children, initialValue }: any) => {
+  const ToggleCompound = ({
+    children,
+    initialValue,
+  }: {
+    children?: ReactNode;
+    initialValue: ContextType;
+  }) => {
     const [isOn, setIsOn] = useState(initialValue);
     return (
       <ToggleContext.Provider value={{ isOn, setIsOn }}>
@@ -38,28 +55,23 @@ export default function FAQ() {
   };
 
   ToggleCompound.SwitchButton = function SwitchButton() {
-    const { setIsOn } = useContext(ToggleContext) as ContextType;
-    return (
-      <button onClick={() => setIsOn((isOn: Boolean) => !isOn)}>switch</button>
-    );
+    const { isOn, setIsOn } = useContext(ToggleContext) as ContextType;
+    return <button onClick={() => setIsOn(!isOn)}>switch</button>;
   };
 
   ToggleCompound.CustomSwitchButton = function SwitchButton() {
     const { isOn, setIsOn } = useContext(ToggleContext) as ContextType;
-    return (
-      <button onClick={() => setIsOn((isOn: Boolean) => !isOn)}>switch</button>
-    );
+    return <button onClick={() => setIsOn(!isOn)}>switch</button>;
   };
 
   const MenuContext = createContext<MenuContextType | false>(false);
 
-  const MenuAccordion = ({ children }: any) => {
+  const MenuAccordion = ({ children }: { children?: ReactNode }) => {
     const [activeGroup, setActiveGroup] = useState();
 
-    const switchGroup = useCallback((title: any) => {
-      setActiveGroup((activeTitle) =>
-        activeTitle === title ? undefined : title
-      );
+    //TODO: разрезолвить any
+    const switchGroup = useCallback((newTitle: any) => {
+      setActiveGroup((title) => (title === newTitle ? undefined : newTitle));
     }, []);
 
     return (
@@ -69,7 +81,13 @@ export default function FAQ() {
     );
   };
 
-  MenuAccordion.Group = function MenuGroup({ children, title }: any) {
+  MenuAccordion.Group = function MenuGroup({
+    children,
+    title,
+  }: {
+    children?: ReactNode;
+    title: string;
+  }) {
     const { activeGroup, switchGroup } = useContext(
       MenuContext
     ) as MenuContextType;
@@ -81,7 +99,13 @@ export default function FAQ() {
     );
   };
 
-  MenuAccordion.Item = function MenuItem({ children, title }: any) {
+  MenuAccordion.Item = function MenuItem({
+    children,
+    title,
+  }: {
+    children?: ReactNode;
+    title: string;
+  }) {
     return <div>{title}</div>;
   };
 
