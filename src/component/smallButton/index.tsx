@@ -30,9 +30,6 @@ export const SmallButton: FC<ButtonProps> = ({
   iconType,
   onClick,
 }) => {
-  //TODO: add isActive class,color
-  /*  const btnClass = classnames({ btn: true, btn__small: true }); */
-
   const classList = cx({
     button: true,
     button__small: true,

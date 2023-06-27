@@ -56,6 +56,28 @@
   border-radius: $br-2;
   padding: $p-2p $p-4;
 
+  &>div {
+    color: $c-ti
+  }
+
+  &:hover,
+  &:active {
+    border-color: $orange;
+    &>div {
+      color: $c-tp;
+    }
+   
+    &::placeholder {
+      color: $c-tp;
+    }
+  }
+
+
+  &::placeholder {
+    color: $c-ti;
+
+  }
+
   &__active {
     border-color: $orange;
   }

@@ -1,16 +1,14 @@
 "use client";
 
 import { FC } from "react";
+import Link from "next/link";
 import Image from "next/image";
 
-import styles from "./styles.module.scss";
 import classnames from "classnames";
+import styles from "./styles.module.scss";
 
-import { SmallButton } from "../SmallButton";
-import { CloseIcon } from "../Icon/Close";
-import { TicketControl } from "../TicketControl";
-import Link from "next/link";
 import { GENRE_LIST } from "@/shared";
+import { TicketControl } from "../TicketControl";
 
 type CardPropsType = {
   id: string;
