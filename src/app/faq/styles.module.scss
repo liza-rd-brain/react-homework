@@ -13,7 +13,7 @@
     }
 
     &__item {
-        @include fontType($fs-4, $medium-font-weight, $lh-6, $text-primary-color);
+        @include fontType($fs-4, $fw_m, $lh-6, $c-tp);
     }
 
 }
@@ -44,10 +44,10 @@
 
     }
 
-    @include fontType($fz-6, $medium-font-weight, $lh-8, $text-primary-color);
+    @include fontType($fz-6, $fw_m, $lh-8, $c-tp);
 
     &__caption {
-        @include fontType($fs-8, $medium-font-weight, $lh-8, $text-primary-color);
+        @include fontType($fs-8, $fw_m, $lh-8, $c-tp);
 
         pointer-events: none;
     }

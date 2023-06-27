@@ -5,6 +5,8 @@ import debounce from "lodash.debounce";
 import { useGetCinemaListQuery } from "@/business/api/cinemaApi";
 import { filterActions } from "@/business/feature/filter";
 
+import { sfpro } from "../../app/font";
+
 import { DropDown } from "./DropDown";
 
 import styles from "./styles.module.scss";
@@ -42,21 +44,19 @@ export const Filter = () => {
 
   return (
     <div className={classnames(styles.filter__wrapper)}>
-      <span>Фильтр поиска</span>
-      <div className={classnames(styles.filter__container)}>
+      <span className={classnames(styles.filter__title)}>Фильтр поиска</span>
+      <div className={classnames(styles.filter__container, sfpro.className)}>
         <div className={classnames(styles.filter__item)}>
-          <label htmlFor="name">
-            Название
-            <input
-              name="name"
-              className={classnames(styles.input)}
-              type="text"
-              autoComplete="off"
-              placeholder="Введите название"
-              defaultValue={nameFilter || ""}
-              onChange={changeInput}
-            />
-          </label>
+          <div className={classnames(styles.filter__item)}>Название</div>
+          <input
+            name="name"
+            className={classnames(styles.input)}
+            type="text"
+            autoComplete="off"
+            placeholder="Введите название"
+            defaultValue={nameFilter || ""}
+            onChange={changeInput}
+          />
         </div>
         <DropDown
           title={"Жанр"}

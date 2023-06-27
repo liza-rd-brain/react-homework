@@ -1,6 +1,8 @@
 @import "../../style/variables.scss";
 @import "../../style/mixin.scss";
 
+
+
 .filter {
   &__wrapper {
     width: 408px;
@@ -24,7 +26,10 @@
     flex-direction: column;
   }
 
+  &__title {
+    @include fontType($fs-4, $fw_b, $lh-5, $c-tp);
 
+  }
 
   &__item {
     display: flex;
@@ -32,6 +37,11 @@
     flex-direction: column;
     gap: $g-1;
     cursor: pointer;
+  }
+
+  &__filter__tex{
+    @include fontType($fs-4, $fw_b, $lh-5, $c-tp);
+
   }
 
 }

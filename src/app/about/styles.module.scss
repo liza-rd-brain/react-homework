@@ -21,10 +21,10 @@
 }
 
 .header {
-    @include fontType($fs-8, $bold-font-weight, $lh-6, $text-primary-color);
+    @include fontType($fs-8, $fw_b, $lh-6, $c-tp);
 
 }
 
 .text {
-    @include fontType($fs-4, $regular-font-weight, $lh-6, $text-primary-color);
+    @include fontType($fs-4, $fw_r, $lh-6, $c-tp);
 }

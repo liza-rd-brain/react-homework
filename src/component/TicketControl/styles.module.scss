@@ -16,7 +16,7 @@
 
 .count {
   cursor: default;
-  @include fontType($fs-5, $medium-font-weight, $lh-5, $text-primary-color);
+  @include fontType($fs-5, $fw_m, $lh-5, $c-tp);
 }
 
 .icon {

@@ -1,17 +1,15 @@
 import { Roboto } from "next/font/google";
 import localFont from "next/font/local";
 
-//TODO:   display: "swap", нужен ли
 export const roboto = Roboto({
-    weight: ["400", "700"],
-    style: ["italic", "normal"],
-    subsets: ["cyrillic"],
-    /*  display: "swap", */
+  weight: ["400", "700"],
+  style: ["italic", "normal"],
+  subsets: ["cyrillic"],
 });
 
 //local font
 export const sfpro = localFont({
-    src: "./SFProText-Regular.ttf",
-    weight: "400",
-    display: "swap",
+  src: "./SFProText-Regular.ttf",
+  weight: "400",
+  display: "swap",
 });

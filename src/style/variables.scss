@@ -3,7 +3,8 @@
 $background-color: #27272A;
 $white: #FFFFFF;
 
-$text-primary-color:#1B1F23;
+//color: text-primary
+$c-tp:#1B1F23;
 
 $gray: #333333;
 $image-gray: #E0E0E0;
@@ -13,11 +14,11 @@ $light-gray: #F5F5F5;
 $orange: #FF5500;
 $orange-disabled: #FFA375;
 
-
-$bold-font-weight:700;
-$medium-font-weight:500;
-$regular-font-weight:400;
-$light-font-weight:400;
+//font-weight
+$fw_b:700;
+$fw_m:500;
+$fw_r:400;
+$fw_l:400;
 
 $step:4px;
 

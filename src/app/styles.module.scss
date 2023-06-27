@@ -23,7 +23,7 @@
   height: 84px;
   background-color: $gray;
   padding: $p-4 $p-8;
-  @include fontType($fs-8, $bold-font-weight, $lh-6, $white);
+  @include fontType($fs-8, $fw_b, $lh-6, $white);
 
 }
 
@@ -37,7 +37,7 @@
   gap: $g-2p;
   background-color: $orange;
   border-radius: $br-2;
-  @include fontType($fs-4, $medium-font-weight, $lh-5, $white);
+  @include fontType($fs-4, $fw_m, $lh-5, $white);
 
 
   &__wrapper {
@@ -62,7 +62,7 @@
   height: 86px;
   background-color: $gray;
   padding: $p-4 $p-8;
-  @include fontType($fs-5, $regular-font-weight, $lh-6, $white)
+  @include fontType($fs-5, $fw_r, $lh-6, $white)
 }
 
 .main {

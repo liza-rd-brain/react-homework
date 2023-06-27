@@ -30,7 +30,7 @@
   &__caption {
     display: flex;
     justify-content: space-between;
-    @include fontType($fs-8, $bold-font-weight, $lh-8, $text-primary-color);
+    @include fontType($fs-8, $fw_b, $lh-8, $c-tp);
 
   }
 
@@ -45,11 +45,11 @@
     display: flex;
     gap: $g-2p;
     text-transform: capitalize;
-    @include fontType($fs-5, $medium-font-weight, $lh-6, $text-primary-color);
+    @include fontType($fs-5, $fw_m, $lh-6, $c-tp);
 
     &> :first-child {
       display: block;
-      @include fontType($fs-5, $bold-font-weight, $lh-6, $text-primary-color);
+      @include fontType($fs-5, $fw_b, $lh-6, $c-tp);
 
     }
   }
@@ -116,10 +116,10 @@
 
   &__title {
     text-transform: capitalize;
-    @include fontType($fs-5, $bold-font-weight, $lh-6, $text-primary-color);
+    @include fontType($fs-5, $fw_b, $lh-6, $c-tp);
   }
 
   &__text {
-    @include fontType($fs-4, $medium-font-weight, $lh-6, $text-primary-color);
+    @include fontType($fs-4, $fw_m, $lh-6, $c-tp);
   }
 }

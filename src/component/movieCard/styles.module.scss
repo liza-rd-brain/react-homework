@@ -46,11 +46,11 @@
   }
 
   &__header {
-    @include fontType($fs-5, $bold-font-weight, $lh-5, $text-primary-color);
+    @include fontType($fs-5, $fw_b, $lh-5, $c-tp);
   }
 
   &__genre {
-    @include fontType($fs-4, $regular-font-weight, $lh-5, $text-primary-color, italic);
+    @include fontType($fs-4, $fw_r, $lh-5, $c-tp, italic);
   }
 }
 
