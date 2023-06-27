@@ -22,6 +22,12 @@
 .icon {
   &__wrapper {
     cursor: pointer;
+    &:hover {
+      &>svg path{
+        fill:black ;
+      }
+     
+    }
   }
 }
 

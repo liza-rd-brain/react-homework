@@ -36,7 +36,9 @@ const WarningWindow = ({
             onClick={closePortal}
             className={classnames(styles.warning__icon)}
           >
-            <CloseIcon color="black" />
+            <div className={classnames(styles.icon__wrapper)}>
+              <CloseIcon color="black" />
+            </div>
           </div>
         </div>
         <div className={classnames(styles.warning__text)}>

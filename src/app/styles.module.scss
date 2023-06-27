@@ -83,3 +83,13 @@
   flex-direction: column;
   gap: $g-4;
 }
+
+.icon__wrapper {
+  &:hover {
+    &>svg path{
+      fill: $orange !important;
+    }
+   
+  }
+
+}

@@ -31,7 +31,9 @@ const Header = () => {
             <div className={classnames(styles.counter)}>{ticketAmount}</div>
           )}
           <Link href="/cart">
-            <CartIcon color="#FFFFFF" />
+            <div className={classnames(styles.icon__wrapper)}>
+              <CartIcon />
+            </div>
           </Link>
         </div>
       </div>
