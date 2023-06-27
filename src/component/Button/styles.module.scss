@@ -3,30 +3,39 @@
 
 .button {
 
-    border: none;
-    font: inherit;
-    color: inherit;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  height: 40px;
+  padding: $p-4;
+  border-radius: $br-1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  @include fontType($fs-4, $fw_m, $lh-5, $white);
+
+
+
+
+  &__filled {
+    color: $white;
+    background-color: $orange;
+
+    &:hover {
+      background-color: $orange-hover;
+    }
+  }
+
+  &__outlined {
+    color: $orange;
+    border: 1px solid $orange;
     background-color: transparent;
-    cursor: pointer;
-    height: 40px;
-    padding: $p-4;
-    border-radius: $br-1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: capitalize;
-    @include fontType($fs-4, $fw_m,$lh-5, $white);
-
-
-
-    &__filled {
-        color: $white;
-        background-color: $orange;
+    &:hover {
+      color: $orange-hover;
+      border-color: $orange-hover;
     }
-
-    &__outlined {
-        color: $orange;
-        border: 1px solid $orange;
-        background-color: transparent;
-    }
+  }
 }

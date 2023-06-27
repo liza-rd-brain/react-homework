@@ -2,24 +2,30 @@
 @import "../../style/variables.scss";
 
 .button {
-    padding: 0;
-    border: none;
-    font: inherit;
-    color: inherit;
-    background-color: transparent;
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    border-radius: $br-1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: $br-1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    &__small {
-        background-color: $orange-disabled;
+  &__small {
+    background-color: $orange-disabled;
+  }
+
+  &__active {
+    background-color: $orange;
+
+    &:hover {
+      background-color:$orange-hover
     }
-    &__active{
-        background-color: $orange;
-    
-    }
+
+
+  }
 }
