@@ -4,14 +4,17 @@ import { useSelector } from "react-redux";
 import classnames from "classnames";
 import styles from "./styles.module.scss";
 
-import { DataType } from "../page";
+import { DataItem } from "@/types";
 import { MovieCard } from "@/component/MovieCard";
 import { useGetMoviesQuery } from "@/business/api/movieApi";
-import { selectTicketInCart } from "@/business/feature/cart/selector";
-import { DataItem } from "@/types";
+import {
+  selectAllTicket,
+  selectTicketInCart,
+} from "@/business/feature/cart/selector";
 
 export default function Page() {
   const ticketList = useSelector(selectTicketInCart);
+  const ticketAmount = useSelector(selectAllTicket);
 
   const { data, isLoading, error, refetch } = useGetMoviesQuery();
 
@@ -32,20 +35,26 @@ export default function Page() {
   }
 
   return (
-    <div className={classnames(styles.cart__wrapper)}>
-      {filledData &&
-        filledData.map(({ id, title, genre, posterUrl }) => {
-          return (
-            <MovieCard
-              key={id}
-              id={id}
-              title={title}
-              genre={genre}
-              posterUrl={posterUrl}
-              withModal={true}
-            />
-          );
-        })}
+    <div className={classnames(styles.wrapper)}>
+      <div className={classnames(styles.list)}>
+        {filledData &&
+          filledData.map(({ id, title, genre, posterUrl }) => {
+            return (
+              <MovieCard
+                key={id}
+                id={id}
+                title={title}
+                genre={genre}
+                posterUrl={posterUrl}
+                withModal={true}
+              />
+            );
+          })}
+      </div>
+      <div className={classnames(styles.summary)}>
+        <div>Итого билетов: </div>
+        <div>{ticketAmount}</div>
+      </div>
     </div>
   );
 }

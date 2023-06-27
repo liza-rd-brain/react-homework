@@ -2,9 +2,25 @@
 @import "../../style/mixin.scss";
 
 
-.cart__wrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: $g-4;
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.list{
+  display: flex;
+  flex-direction: column;
+  gap: $g-4;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  background-color: $white;
+  padding: $p-6;
+  border-radius: $br-2;
+  @include fontType($fs-5, $fw_b, $lh-5, $c-tp);
+
 }

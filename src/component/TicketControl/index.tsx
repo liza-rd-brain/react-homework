@@ -91,7 +91,7 @@ export const TicketControl = ({ id, withModal }: ControllerType) => {
         <div
           className={classnames(styles.icon__wrapper)}
           onClick={() => {
-            withModal && needOpenModal
+            withModal
               ? changePortalOpen(true)
               : dispatch(cartActions.reset(id));
           }}
@@ -104,7 +104,7 @@ export const TicketControl = ({ id, withModal }: ControllerType) => {
         createPortal(
           <WarningWindow
             deleteTicket={() => {
-              dispatch(cartActions.decrement(id));
+              dispatch(cartActions.reset(id));
             }}
             closePortal={() => changePortalOpen(false)}
           />,

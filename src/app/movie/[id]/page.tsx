@@ -8,9 +8,9 @@ import portraitPlug from "../../../../public/portraitPlug.png";
 
 import { useGetMovieQuery } from "@/business/api/movieApi";
 
-import { useGetReviewQuery } from "@/business/api/reviewsApi";
-import { TicketControl } from "@/component/TicketControl";
 import { GENRE_LIST } from "@/shared";
+import { TicketControl } from "@/component/TicketControl";
+import { useGetReviewQuery } from "@/business/api/reviewsApi";
 
 const Review: FC<{ id: string }> = ({ id }) => {
   const { data, isLoading, error } = useGetReviewQuery(id);
@@ -43,7 +43,9 @@ const Review: FC<{ id: string }> = ({ id }) => {
                   {item.name}
                 </div>
                 <div className={classnames(styles.review__rating)}>
-                  <span>Оценка: </span>
+                  <span className={classnames(styles.rating__text)}>
+                    Оценка:{" "}
+                  </span>
                   {item.rating}
                 </div>
               </div>

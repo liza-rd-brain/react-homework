@@ -82,6 +82,8 @@
   padding: $p-4;
   gap: $g-4;
 
+  @include fontType($fs-5, $fw_b, $lh-8, $c-tp);
+
   &__image {
     width: 100px;
     height: 100px;
@@ -106,6 +108,20 @@
     justify-content: space-between;
   }
 
+  &__title{
+
+  }
+
+  &__description{
+    @include fontType($fs-4, $fw_m, $lh-6  , $c-tp);
+
+  }
+
+}
+
+.rating__text{
+  @include fontType($fs-5, $fw_m, $lh-8, $c-tp);
+
 }
 
 .description {
@@ -122,4 +138,6 @@
   &__text {
     @include fontType($fs-4, $fw_m, $lh-6, $c-tp);
   }
+
+  
 }
