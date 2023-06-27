@@ -15,7 +15,7 @@ import { DataItem } from "@/types";
 export default function Page() {
   const ticketList = useSelector(selectTicketInCart);
 
-  const { data, isLoading, error, refetch } = useGetMoviesQuery(undefined);
+  const { data, isLoading, error, refetch } = useGetMoviesQuery();
 
   const filteredData = ticketList.map((item) => {
     return data?.find((filmItem) => filmItem.id === item);

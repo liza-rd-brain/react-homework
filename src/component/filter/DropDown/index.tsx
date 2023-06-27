@@ -13,15 +13,15 @@ import { filterActions } from "@/business/feature/filter";
 import { selectFilterModule } from "@/business/feature/filter/selector";
 
 type ModalType = {
-  closeModal: () => void; //
+  closeModal: () => void;
   type: "genre" | "cinema";
-  data: Array<any>;
+  data: Array<{ name: string; id: string }>;
 };
 
 type DropDownType = {
   title: string;
   type: "genre" | "cinema";
-  data: Array<any>;
+  data: Array<{ name: string; id: string }>;
   placeHolder: string;
 };
 

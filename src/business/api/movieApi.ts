@@ -5,7 +5,7 @@ export const movieApi = createApi({
   reducerPath: "movieAPI",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/api/" }),
   endpoints: (builder) => ({
-    getMovies: builder.query<DataType, string | undefined>({
+    getMovies: builder.query<DataType, string | void>({
       query: (cinemaId) =>
         cinemaId //
           ? `movies?cinemaId=${cinemaId}`

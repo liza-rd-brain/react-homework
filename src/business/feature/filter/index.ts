@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-/* export type StateType = Record<any, any> */
-
 export type StateType = {
   nameFilter: string | null;
   genreFilter: { name: string | null };

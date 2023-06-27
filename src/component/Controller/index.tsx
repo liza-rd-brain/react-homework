@@ -23,9 +23,6 @@ export const Controller = ({ id }: ControllerType) => {
     selectTicketAmount(state as Parameters<typeof selectTicketAmount>[0], id)
   );
 
-  console.log("ticketAmount", ticketAmount);
-  //достаем id из мо
-
   return (
     <div className={classnames(styles.controller__container)}>
       <div className={classnames(styles.controller)}>

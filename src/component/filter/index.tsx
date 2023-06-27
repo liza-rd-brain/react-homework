@@ -13,8 +13,10 @@ import classnames from "classnames";
 import { GENRE_LIST } from "@/shared";
 import { selectFilterModule } from "@/business/feature/filter/selector";
 
+const GENRE_LIST_WITH_ID = GENRE_LIST.map((x) => ({ id: x.name, ...x }));
+
 export const Filter = () => {
-  const { data: cinemaList, isLoading, error } = useGetCinemaListQuery({});
+  const { data: cinemaList, isLoading, error } = useGetCinemaListQuery();
   const { nameFilter } = useSelector(selectFilterModule);
   const dispatch = useDispatch();
 
@@ -59,7 +61,7 @@ export const Filter = () => {
         <DropDown
           title={"Жанр"}
           type="genre"
-          data={GENRE_LIST}
+          data={GENRE_LIST_WITH_ID}
           placeHolder="Выберите жанр"
         ></DropDown>
         <DropDown

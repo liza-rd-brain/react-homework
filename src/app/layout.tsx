@@ -27,7 +27,9 @@ const Header = () => {
           <Link href="/">Билетопоиск</Link>
         </div>
         <div className={classnames(styles.counter__wrapper)}>
-          <div className={classnames(styles.counter)}>{ticketAmount}</div>
+          {ticketAmount !== 0 && (
+            <div className={classnames(styles.counter)}>{ticketAmount}</div>
+          )}
           <Link href="/cart">
             <CartIcon color="#FFFFFF" />
           </Link>

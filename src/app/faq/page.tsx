@@ -69,10 +69,9 @@ export default function FAQ() {
   const MenuContext = createContext<MenuContextType | false>(false);
 
   const FaqAccordion = ({ children }: { children?: ReactNode }) => {
-    const [activeGroup, setActiveGroup] = useState();
+    const [activeGroup, setActiveGroup] = useState<string | undefined>();
 
-    //TODO: разрезолвить any
-    const switchGroup = useCallback((newTitle: any) => {
+    const switchGroup = useCallback((newTitle?: string) => {
       setActiveGroup((title) => (title === newTitle ? undefined : newTitle));
     }, []);
 
