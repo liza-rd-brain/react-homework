@@ -10,8 +10,6 @@ import { useGetMoviesQuery } from "@/business/api/movieApi";
 import { selectTicketInCart } from "@/business/feature/cart/selector";
 import { DataItem } from "@/types";
 
-//TODO: portal!!!
-
 export default function Page() {
   const ticketList = useSelector(selectTicketInCart);
 
@@ -24,8 +22,6 @@ export default function Page() {
   const filledData = filteredData.filter(
     (item) => item !== undefined
   ) as DataItem[];
-
-  console.log({ filteredData, filledData, ticketList });
 
   if (isLoading) {
     return <div className={classnames(styles.main)}>Loading...</div>;

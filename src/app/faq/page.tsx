@@ -95,7 +95,11 @@ export default function FAQ() {
       MenuContext
     ) as MenuContextType;
     return (
-      <details className={classnames(styles.details)}>
+      <details
+        className={classnames(styles.details, {
+          [styles.details__withInteract]: hasInteract,
+        })}
+      >
         <summary
           onClick={() => switchGroup(title)}
           className={classnames(styles.summary, {

@@ -58,7 +58,6 @@ const Review: FC<{ id: string }> = ({ id }) => {
   );
 };
 
-//TODO: extra request for  reviews
 export default function Movie({ params }: { params: { id: string } }) {
   const { data, isLoading, error } = useGetMovieQuery(params.id);
 

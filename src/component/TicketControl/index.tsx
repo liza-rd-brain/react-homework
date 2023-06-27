@@ -52,7 +52,6 @@ const WarningWindow = ({
 };
 
 export const TicketControl = ({ id, withModal }: ControllerType) => {
-  console.log("withModal", withModal);
   const dispatch = useDispatch();
 
   const [isPortalOpen, changePortalOpen] = useState(false);
@@ -61,12 +60,7 @@ export const TicketControl = ({ id, withModal }: ControllerType) => {
     selectTicketAmount(state as Parameters<typeof selectTicketAmount>[0], id)
   );
 
-  console.log("portal");
   const target = document.getElementById("portalContainer");
-  if (target) {
-    console.log("created");
-    // const portal = createPortal(<WarningWindow />, target);
-  }
 
   const needOpenModal = ticketAmount === 1;
 
