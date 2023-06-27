@@ -13,6 +13,7 @@ import { selectFilterModule } from "@/business/feature/filter/selector";
 import { GENRE_LIST } from "@/shared";
 import { Filter } from "@/component/Filter";
 import { MovieCard } from "@/component/MovieCard";
+import { Empty } from "@/component/Empty";
 
 export type DataType = Array<DataItem>;
 
@@ -40,7 +41,9 @@ export default function Page() {
       if (filterState.nameFilter) {
         newData = newData?.filter((item) => {
           const currTitle = item.title.toLowerCase();
-          const currFilter = filterState.nameFilter?.toLowerCase() as string;
+          const currFilter = filterState.nameFilter
+            ?.toLowerCase()
+            .trim() as string;
           return currTitle.includes(currFilter);
         });
       }
