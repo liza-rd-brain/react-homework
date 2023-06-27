@@ -1,8 +1,16 @@
-@mixin fontType($size, $weight, $height, $color,$font-style:normal) {
-    line-height: $height;
-    font-weight: $weight;
-    font-size: $size;
-    color: $color;
-    font-style:$font-style ;
+@mixin fontType($size, $weight, $height, $color, $font-style:normal) {
+  line-height: $height;
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
+  font-style: $font-style;
 }
- 
+
+
+@mixin hover($color, $selector) {
+  cursor: pointer;
+
+  &:hover {
+    #{$selector}: color;
+  }
+}

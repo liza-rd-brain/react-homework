@@ -47,7 +47,7 @@ export const Filter = () => {
       <span className={classnames(styles.filter__title)}>Фильтр поиска</span>
       <div className={classnames(styles.filter__container, sfpro.className)}>
         <div className={classnames(styles.filter__item)}>
-          <div className={classnames(styles.filter__item)}>Название</div>
+          <div className={classnames(styles.filter__text)}>Название</div>
           <input
             name="name"
             className={classnames(styles.input)}

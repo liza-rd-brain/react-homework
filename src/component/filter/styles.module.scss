@@ -39,10 +39,7 @@
     cursor: pointer;
   }
 
-  &__filter__tex{
-    @include fontType($fs-4, $fw_b, $lh-5, $c-tp);
 
-  }
 
 }
 
@@ -57,7 +54,7 @@
   box-sizing: border-box;
   border: 1px solid $medium-gray;
   border-radius: $br-2;
-  padding: $p-2.5 $p-4;
+  padding: $p-2p $p-4;
 
   &__active {
     border-color: $orange;

@@ -110,7 +110,7 @@ export default function FAQ() {
                   [styles.icon__wrapper__reversed]: activeGroup === title,
                 })}
               >
-                <ArrowIcon color="#999FA6" />
+                <ArrowIcon color="#999FA6" width={32} height={32} />
               </div>
             )}
           </div>
