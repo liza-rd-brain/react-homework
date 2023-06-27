@@ -36,7 +36,7 @@ export default function Page() {
   }
 
   return (
-    <>
+    <div className={classnames(styles.cart__wrapper)}>
       {filledData &&
         filledData.map(({ id, title, genre, posterUrl }) => {
           return (
@@ -46,9 +46,10 @@ export default function Page() {
               title={title}
               genre={genre}
               posterUrl={posterUrl}
+              withModal={true}
             />
           );
         })}
-    </>
+    </div>
   );
 }

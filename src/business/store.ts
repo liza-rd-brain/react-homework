@@ -53,5 +53,4 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
-/* console.log("store", store.getState()) */
 export type StoreType = ReturnType<typeof reducers>;

@@ -5,14 +5,7 @@
 .container {
   width: 1920px;
   height: 100%;
-  // min-height: calc(100vh - 84px - 72px);
-
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-between;
-
   background-color: $light-gray;
-
   margin: 0 auto;
   overflow-x: hidden;
   overflow-y: auto;
@@ -49,9 +42,9 @@
   @include fontType($small-font-size, $medium-font-weight, $small-line-height, $white);
 
 
-  &__wrapper{
+  &__wrapper {
     display: flex;
-    gap:8px;
+    gap: 8px;
     justify-content: center;
     align-items: center;
   }
@@ -86,9 +79,9 @@
   /*     height: 100%; */
 }
 
-.movie__list {
+.movie {
+  width: 1424px;
   display: flex;
   flex-direction: column;
   gap: $small-gap;
-
 }

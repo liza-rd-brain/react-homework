@@ -1,18 +1,18 @@
 "use client";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { useEffect, useMemo } from "react";
 
-import styles from "./styles.module.scss";
 import classnames from "classnames";
+import styles from "./styles.module.scss";
 
+import { DataItem } from "@/types";
+import { useGetMoviesQuery } from "@/business/api/movieApi";
+import { selectFilterModule } from "@/business/feature/filter/selector";
+
+import { GENRE_LIST } from "@/shared";
 import { Filter } from "@/component/Filter";
 import { MovieCard } from "@/component/MovieCard";
-import { useGetMovieQuery, useGetMoviesQuery } from "@/business/api/movieApi";
-import { useEffect, useMemo } from "react";
-import { selectFilterModule } from "@/business/feature/filter/selector";
-import { GENRE_LIST } from "@/shared";
-import Link from "next/link";
-import { DataItem } from "@/types";
 
 export type DataType = Array<DataItem>;
 
@@ -21,9 +21,6 @@ export default function Page() {
   const { data, isLoading, error, refetch } = useGetMoviesQuery(
     filterState.cinemaFilter?.id
   );
-
-  //сделать фильтрацию!
-  // console.log("filter", filterState);
 
   const filteredData = useMemo(() => {
     if (!data) {
@@ -52,8 +49,6 @@ export default function Page() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterState.genreFilter, filterState.nameFilter, data]);
-
-  console.log("на экране", filteredData);
 
   const currData = filteredData || data;
 
@@ -84,7 +79,7 @@ export default function Page() {
   return (
     <>
       <Filter />
-      <div className={classnames(styles.movie__list)}>
+      <div className={classnames(styles.movie)}>
         {currData?.map(({ id, title, genre, posterUrl }: DataType) => {
           return (
             <MovieCard

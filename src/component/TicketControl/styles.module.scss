@@ -1,0 +1,61 @@
+@import "../../style/variables.scss";
+@import "../../style/mixin.scss";
+
+
+.controller {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+
+  &__container {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+}
+
+.count {
+  cursor: default;
+  @include fontType($regular-font-size, $medium-font-weight, $small-line-height, $text-primary-color);
+}
+
+.icon {
+  &__wrapper {
+    cursor: pointer;
+  }
+}
+
+.warning {
+margin: 50%;
+width: 300px;
+height: 150px;
+background-color: $white;
+border-radius: 8px;
+padding: 24px;
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background: rgba(0, 0, 0, 0.50);
+    position: absolute;
+  }
+
+  &__caption{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+  }
+  &__text{
+    
+  }
+  &__control{
+    
+  }
+
+  &__icon{
+    cursor: pointer;
+  }
+}

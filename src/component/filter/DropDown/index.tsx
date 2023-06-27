@@ -81,11 +81,6 @@ export const DropDown: FC<DropDownType> = ({
 
   const currTarget = document.getElementById(type) as HTMLElement;
 
-  /*   console.log("currTarget", currTarget); */
-
-  //TODO: обработать клик вне выпадашки! В кастомный хук?
-  //useEfect -отписаться от listener!!!
-
   useEffect(
     () => {
       const closeModalCallback: Parameters<

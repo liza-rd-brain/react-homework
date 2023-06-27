@@ -61,6 +61,7 @@ export default function RootLayout({
     <html lang="en" className={roboto.className}>
       <body>
         <div
+          id="portalContainer"
           className={classnames(styles.container, styles.container__main_page)}
         >
           <StoreProvider>

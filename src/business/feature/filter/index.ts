@@ -17,7 +17,6 @@ export const filterSlice = createSlice({
   initialState,
   reducers: {
     filterByName: (state, { payload }: { payload: string | null }) => {
-      console.log("payload", payload);
       state.nameFilter = payload ? payload : null;
     },
     filterByGenre: (

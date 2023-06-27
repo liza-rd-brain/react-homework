@@ -1,3 +1,4 @@
+import { MAX_AMOUNT } from "@/shared";
 import { createSlice } from "@reduxjs/toolkit";
 
 export type StateType = Record<string, number>;
@@ -8,8 +9,10 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     increment: (state, { payload }) => {
-      const count = state[payload] || 0;
-      state[payload] = count + 1;
+      if (!state[payload] || state[payload] < MAX_AMOUNT) {
+        const count = state[payload] || 0;
+        state[payload] = count + 1;
+      }
     },
 
     decrement: (state, { payload }) => {

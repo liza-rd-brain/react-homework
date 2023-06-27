@@ -9,13 +9,11 @@ import portraitPlug from "../../../../public/portraitPlug.png";
 import { useGetMovieQuery } from "@/business/api/movieApi";
 
 import { useGetReviewQuery } from "@/business/api/reviewsApi";
-import { Controller } from "@/component/Controller";
+import { TicketControl } from "@/component/TicketControl";
 import { GENRE_LIST } from "@/shared";
 
 const Review: FC<{ id: string }> = ({ id }) => {
   const { data, isLoading, error } = useGetReviewQuery(id);
-
-  console.log("reviews", data);
 
   if (isLoading) {
     return <div className={classnames(styles.main)}>Loading...</div>;
@@ -86,7 +84,7 @@ export default function Movie({ params }: { params: { id: string } }) {
         />
         <div className={classnames(styles.card__text)}>
           <div className={classnames(styles.card__caption)}>
-            {data.title} <Controller id={params.id} />
+            {data.title} <TicketControl id={params.id} />
           </div>
           <div className={classnames(styles.table)}>
             <div className={classnames(styles.table__row)}>

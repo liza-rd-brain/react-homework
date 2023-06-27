@@ -8,7 +8,7 @@ import classnames from "classnames";
 
 import { SmallButton } from "../SmallButton";
 import { CloseIcon } from "../Icon/Close";
-import { Controller } from "../Controller";
+import { TicketControl } from "../TicketControl";
 import Link from "next/link";
 import { GENRE_LIST } from "@/shared";
 
@@ -17,6 +17,7 @@ type CardPropsType = {
   title: string;
   genre: string;
   posterUrl: string;
+  withModal?: boolean;
 };
 
 export const MovieCard: FC<CardPropsType> = ({
@@ -24,6 +25,7 @@ export const MovieCard: FC<CardPropsType> = ({
   title,
   genre,
   posterUrl,
+  withModal,
 }) => {
   const currLink = `/movie/${id}`;
 
@@ -57,7 +59,7 @@ export const MovieCard: FC<CardPropsType> = ({
           </div>
         </div>
       </Link>
-      <Controller id={id} />
+      <TicketControl id={id} withModal={withModal} />
     </div>
   );
 };
