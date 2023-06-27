@@ -10,10 +10,10 @@
   &__card {
     display: flex;
     width: 100%;
-    gap: $g8;
-    padding: $common-padding;
+    gap: $g-8;
+    padding: $p-6;
     background-color: $white;
-    border-radius: $medium-border-radius;
+    border-radius: $br-2;
 
   }
 }
@@ -24,13 +24,13 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: $g6;
+    gap: $g-6;
   }
 
   &__caption {
     display: flex;
     justify-content: space-between;
-    @include fontType($big-font-size, $bold-font-weight, $medium-line-height, $text-primary-color);
+    @include fontType($fs-8, $bold-font-weight, $lh-8, $text-primary-color);
 
   }
 
@@ -39,17 +39,17 @@
 .table {
   display: flex;
   flex-direction: column;
-  gap: $small-gap;
+  gap: $g-4;
 
   &__row {
     display: flex;
-    gap: $xs-gap;
+    gap: $g-2p;
     text-transform: capitalize;
-    @include fontType($regular-font-size, $medium-font-weight, $regular-line-height, $text-primary-color);
+    @include fontType($fs-5, $medium-font-weight, $lh-6, $text-primary-color);
 
     &> :first-child {
       display: block;
-      @include fontType($regular-font-size, $bold-font-weight, $regular-line-height, $text-primary-color);
+      @include fontType($fs-5, $bold-font-weight, $lh-6, $text-primary-color);
 
     }
   }
@@ -58,7 +58,7 @@
 }
 
 .image {
-  border-radius: $medium-border-radius;
+  border-radius: $br-2;
 }
 
 .card__items__wrapper {
@@ -78,9 +78,9 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 24px;
-  padding: 24px;
-  gap: 24px;
+  margin: $m-4;
+  padding: $p-4;
+  gap: $g-4;
 
   &__image {
     width: 100px;
@@ -89,7 +89,7 @@
     justify-content: center;
     align-items: center;
     background-color: $image-gray;
-    border-radius: $medium-border-radius;
+    border-radius: $br-2;
   }
 
   &__text {
@@ -116,10 +116,10 @@
 
   &__title {
     text-transform: capitalize;
-    @include fontType($regular-font-size, $bold-font-weight, $regular-line-height, $text-primary-color);
+    @include fontType($fs-5, $bold-font-weight, $lh-6, $text-primary-color);
   }
 
   &__text {
-    @include fontType($small-font-size, $medium-font-weight, $regular-line-height, $text-primary-color);
+    @include fontType($fs-4, $medium-font-weight, $lh-6, $text-primary-color);
   }
 }

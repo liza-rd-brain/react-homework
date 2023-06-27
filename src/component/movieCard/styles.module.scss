@@ -18,7 +18,7 @@
     display: flex;
     justify-content: space-between;
     background-color: $white;
-    border-radius: 8px;
+    border-radius: $br-2;
 
     &>* {
       box-sizing: border-box;
@@ -29,32 +29,32 @@
       align-items: flex-start;
     }
 
-    /*  padding: 24px; */
+
   }
 
   &__wrapper {
     display: flex;
     flex-direction: row;
-    gap: 24px;
+    gap: $g-4;
     flex-grow: 1;
     cursor: pointer;
   }
 
   &__text {
     text-transform: capitalize;
-    gap: $xs-gap;
+    gap: $g-2p;
   }
 
   &__header {
-    @include fontType($regular-font-size, $bold-font-weight, $small-line-height, $text-primary-color);
+    @include fontType($fs-5, $bold-font-weight, $lh-5, $text-primary-color);
   }
 
   &__genre {
-    @include fontType($small-font-size, $regular-font-weight, $small-line-height, $text-primary-color, italic);
+    @include fontType($fs-4, $regular-font-weight, $lh-5, $text-primary-color, italic);
   }
 }
 
 
 .image {
-  border-radius: $medium-border-radius;
+  border-radius: $br-2;
 }

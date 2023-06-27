@@ -14,9 +14,7 @@
 
 
 
-//TODO: вынести общее header,footer
-//TODO: добавить cursor pointer
-//TODO: общий border-radius
+
 .header {
   grid-area: header;
   display: flex;
@@ -24,8 +22,8 @@
   position: sticky;
   height: 84px;
   background-color: $gray;
-  padding: 24px 32px;
-  @include fontType($big-font-size, $bold-font-weight, $big-line-height, $white);
+  padding: $p-4 $p-8;
+  @include fontType($fs-8, $bold-font-weight, $lh-6, $white);
 
 }
 
@@ -33,18 +31,18 @@
   display: flex;
   width: 28px;
   height: 28px;
-  padding: 4px;
+  padding: $p-1;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: $g-2p;
   background-color: $orange;
-  border-radius: 8px;
-  @include fontType($small-font-size, $medium-font-weight, $small-line-height, $white);
+  border-radius: $br-2;
+  @include fontType($fs-4, $medium-font-weight, $lh-5, $white);
 
 
   &__wrapper {
     display: flex;
-    gap: 8px;
+    gap: $g-2;
     justify-content: center;
     align-items: center;
   }
@@ -63,16 +61,16 @@
   /*  display: flex; */
   height: 86px;
   background-color: $gray;
-  padding: 24px 32px;
-  @include fontType($regular-font-size, $regular-font-weight, $regular-line-height, $white)
+  padding: $p-4 $p-8;
+  @include fontType($fs-5, $regular-font-weight, $lh-6, $white)
 }
 
 .main {
   display: flex;
   grid-template-columns: repeat(2, 1fr);
   background-color: $light-gray;
-  padding: 24px 32px;
-  gap: 24px;
+  padding: $p-4 $p-8;
+  gap: $g-6;
   justify-self: start;
   align-self: start;
   min-height: calc(100vh - 98px - 72px);
@@ -83,5 +81,5 @@
   width: 1424px;
   display: flex;
   flex-direction: column;
-  gap: $small-gap;
+  gap: $g-4;
 }

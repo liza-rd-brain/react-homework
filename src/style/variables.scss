@@ -21,41 +21,42 @@ $light-font-weight:400;
 
 $step:4px;
 
-$big-font-size:$step*8;
-$regular-font-size:$step*5;
+//font-size
+$fs-8:$step*8;
 $fz-6:$step*6;
-$small-font-size:$step*4;
-$extra-small-font-size:$step*4-2;
+$fs-5:$step*5;
+$fs-4:$step*4;
+$fs-3:$step*4-2;
 
-$big-line-height:37.5px;
-$medium-line-height:$step*8;
-$regular-line-height:$step*6;
-$small-line-height:$step*5;
+//line-height
+$lh-8:$step*8;
+$lh-6:$step*6;
+$lh-5:$step*5;
 
-
-//вынести  medium step???
-$big-padding:$step*8;
-$common-padding:$step*6;
-$medium-padding:$step*4;
+//padding
+$p-8:$step*8;
+$p-6:$step*6;
+$p-4:$step*4;
 $p3:$step*3;
-$thin-padding:$step*2.5;
-$xs-padding:$step*2;
+$p-2:$step*2;
+$p-1:$step;
 
-$medium-border-radius:$step*2;
-$thin-border-radius:$step;
-
-$g8:$step*8;
-$g6:$step*6;
-$common-gap:$step*5;
-$small-gap:$step*4;
-$xs-gap:$step*2;
-$thin-gap:$step;
+//margin
+$m-4:$step*4;
 
 
 
+//border-radius
+$br-2:$step*2;
+$br-1:$step*1;
+
+//gap
+$g-8:$step*8;
+$g-6:$step*6;
+$g-5:$step*5;
+$g-4:$step*4;
+$g-2p:$step*2+2;
+$g-2:$step*2;
+$g-1:$step;
 
 
- 
-
-// 20px
-// 14px

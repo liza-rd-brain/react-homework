@@ -8,12 +8,12 @@
         display: flex;
         width: 100%;
         flex-direction: column;
-        gap: 16px;
+        gap: $g-4;
 
     }
 
     &__item {
-        @include fontType($small-font-size, $medium-font-weight, $regular-line-height, $text-primary-color);
+        @include fontType($fs-4, $medium-font-weight, $lh-6, $text-primary-color);
     }
 
 }
@@ -25,14 +25,14 @@
 
 .summary {
     width: 100%;
-    padding: 24px;
+    padding: $g-6;
     display: flex;
     flex-direction: column;
 
 
-    gap: $small-gap;
+    gap: $g-4;
     background-color: $white;
-    border-radius: 8px;
+    border-radius: $br-2;
     outline: none;
     list-style: none;
     cursor: pointer;
@@ -44,10 +44,10 @@
 
     }
 
-    @include fontType($fz-6, $medium-font-weight, $medium-line-height, $text-primary-color);
+    @include fontType($fz-6, $medium-font-weight, $lh-8, $text-primary-color);
 
     &__caption {
-        @include fontType($big-font-size, $medium-font-weight, $medium-line-height, $text-primary-color);
+        @include fontType($fs-8, $medium-font-weight, $lh-8, $text-primary-color);
 
         pointer-events: none;
     }
