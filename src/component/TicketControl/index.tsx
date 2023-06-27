@@ -13,6 +13,7 @@ import { selectTicketAmount } from "@/business/feature/cart/selector";
 import { CloseIcon } from "../Icon/Close";
 import { SmallButton } from "../SmallButton";
 import { MAX_AMOUNT, MIN_AMOUNT } from "@/shared";
+import { Button } from "../Button";
 
 type ControllerType = {
   id: string;
@@ -20,9 +21,11 @@ type ControllerType = {
 };
 
 const WarningWindow = ({
-  changePortalOpen,
+  closePortal,
+  deleteTicket,
 }: {
-  changePortalOpen: () => void;
+  closePortal: () => void;
+  deleteTicket: () => void;
 }) => {
   return (
     <div id="modalPortal" className={classnames(styles.warning__container)}>
@@ -30,7 +33,7 @@ const WarningWindow = ({
         <div className={classnames(styles.warning__caption)}>
           Удаление билета
           <div
-            onClick={changePortalOpen}
+            onClick={closePortal}
             className={classnames(styles.warning__icon)}
           >
             <CloseIcon color="black" />
@@ -39,7 +42,10 @@ const WarningWindow = ({
         <div className={classnames(styles.warning__text)}>
           Вы уверены, что хотите удалить билет?
         </div>
-        <div className={classnames(styles.warning__control)}>дф нет</div>
+        <div className={classnames(styles.warning__control)}>
+          <Button text="да" isFilled={true} onClick={deleteTicket} />
+          <Button text="нет" isFilled={false} onClick={closePortal} />
+        </div>
       </div>
     </div>
   );
@@ -100,7 +106,12 @@ export const TicketControl = ({ id, withModal }: ControllerType) => {
       {isPortalOpen &&
         target &&
         createPortal(
-          <WarningWindow changePortalOpen={() => changePortalOpen(false)} />,
+          <WarningWindow
+            deleteTicket={() => {
+              dispatch(cartActions.decrement(id));
+            }}
+            closePortal={() => changePortalOpen(false)}
+          />,
           target
         )}
     </div>

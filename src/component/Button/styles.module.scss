@@ -1,0 +1,32 @@
+@import "../../style/variables.scss";
+@import "../../style/mixin.scss";
+
+.button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    height: 40px;
+    padding: 16px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    @include fontType($small-font-size, $medium-font-weight,$small-line-height, $white);
+
+
+
+    &__filled {
+        color: $white;
+        background-color: $orange;
+    }
+
+    &__outlined {
+        color: $orange;
+        border: 1px solid $orange;
+        background-color: transparent;
+    }
+}
