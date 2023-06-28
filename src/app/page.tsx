@@ -13,7 +13,6 @@ import { selectFilterModule } from "@/business/feature/filter/selector";
 import { GENRE_LIST } from "@/shared";
 import { Filter } from "@/component/Filter";
 import { MovieCard } from "@/component/MovieCard";
-import { Empty } from "@/component/Empty";
 
 export type DataType = Array<DataItem>;
 
