@@ -11,8 +11,8 @@ import { useGetMoviesQuery } from "@/business/api/movieApi";
 import { selectFilterModule } from "@/business/feature/filter/selector";
 
 import { GENRE_LIST } from "@/shared";
-import { Filter } from "@/component/Filter";
-import { MovieCard } from "@/component/MovieCard";
+import { Filter } from "@/component/Filters";
+import { MovieCard } from "@/component/CardMovie";
 
 export type DataType = Array<DataItem>;
 

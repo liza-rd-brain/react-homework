@@ -8,7 +8,7 @@ import { roboto } from "./font";
 import classnames from "classnames";
 import styles from "./styles.module.scss";
 
-import { CartIcon } from "../component/Icon/Cart";
+import { CartIcon } from "../component/Icons/Cart";
 import { StoreProvider } from "@/business/StoreProvider";
 import { selectAllTicket } from "@/business/feature/cart/selector";
 

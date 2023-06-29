@@ -5,7 +5,7 @@ import classnames from "classnames";
 import styles from "./styles.module.scss";
 
 import { DataItem } from "@/types";
-import { MovieCard } from "@/component/MovieCard";
+import { MovieCard } from "@/component/CardMovie";
 import { useGetMoviesQuery } from "@/business/api/movieApi";
 import {
   selectAllTicket,

@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import classnames from "classnames";
 import styles from "./../styles.module.scss";
 
-import { ArrowIcon } from "@/component/Icon/Arrow";
+import { ArrowIcon } from "@/component/Icons/Arrow";
 import { filterActions } from "@/business/feature/filter";
 import { selectFilterModule } from "@/business/feature/filter/selector";
 

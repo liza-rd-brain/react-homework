@@ -10,7 +10,7 @@ import {
 
 import classnames from "classnames";
 import styles from "./styles.module.scss";
-import { ArrowIcon } from "@/component/Icon/Arrow";
+import { ArrowIcon } from "@/component/Icons/Arrow";
 
 type ContextType = { isOn: boolean; setIsOn: (isOn: boolean) => void };
 type MenuContextType = {

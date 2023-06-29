@@ -10,8 +10,8 @@ import styles from "./styles.module.scss";
 import { cartActions } from "@/business/feature/cart";
 import { selectTicketAmount } from "@/business/feature/cart/selector";
 
-import { CloseIcon } from "../Icon/Close";
-import { SmallButton } from "../SmallButton";
+import { CloseIcon } from "../Icons/Close";
+import { SmallButton } from "../ButtonSmall";
 import { MAX_AMOUNT, MIN_AMOUNT } from "@/shared";
 import { Button } from "../Button";
 
